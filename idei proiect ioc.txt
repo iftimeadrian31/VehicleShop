@@ -1,0 +1,18 @@
+Magazin Masini
+
+Speech:
+Change 
+Change language:
+Schimba Limba:
+changer de langue:
+
+Eye tracking:
+Actiuni daca se uita in alta parte (nu i se vad ochii)
+selectie optiuni masini (firma)
+
+Sound-Output:
+Sunetul motorului in functie de tipul de masini (muscle, racing, casual, electric)
+sunet pentru actiuni de tipul select sau date incorecte sau not found
+
+Tastatura:
+introducere date personale

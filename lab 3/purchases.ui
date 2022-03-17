@@ -299,7 +299,7 @@ p, li { white-space: pre-wrap; }
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background_color:rgb(80, 15, 210)</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -328,12 +328,18 @@ p, li { white-space: pre-wrap; }
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Main Menu</string>
@@ -353,7 +359,7 @@ padding: 5px;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(227, 131, 246);
-color:rgb(255, 255, 255);
+color:rgb(0, 0, 0);
 border-radius:10px;</string>
       </property>
       <widget class="QLineEdit" name="lineEdit_4">
@@ -366,10 +372,16 @@ border-radius:10px;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:rgb(255, 255, 255);
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
 border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_5">
@@ -382,10 +394,16 @@ border-width:1px</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-style:solid;
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
+border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px;
-color:rgb(255, 255, 255);</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_6">
@@ -398,10 +416,16 @@ color:rgb(255, 255, 255);</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:rgb(255, 255, 255);
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
 border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -494,9 +518,16 @@ border-width:1px</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-style:solid;
+        <string notr="true">QTextEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QTextEdit:focus{color:rgb(0, 0, 0);
+border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_19">
@@ -601,7 +632,7 @@ p, li { white-space: pre-wrap; }
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background_color:rgb(80, 15, 210)</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -630,12 +661,18 @@ p, li { white-space: pre-wrap; }
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Back</string>
@@ -658,12 +695,18 @@ padding: 5px;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Main Menu</string>

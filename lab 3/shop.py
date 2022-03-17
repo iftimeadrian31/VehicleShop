@@ -11,161 +11,524 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import json
 
+
 class Ui_ShopWindow(object):
     def setupUi(self, ShopWindow):
         theme_file=open("theme.json")
         theme=json.load(theme_file)
         ShopWindow.setObjectName("ShopWindow")
-        ShopWindow.resize(826, 640)
+        ShopWindow.resize(827, 640)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(ShopWindow.sizePolicy().hasHeightForWidth())
         ShopWindow.setSizePolicy(sizePolicy)
-        ShopWindow.setStyleSheet("background-color:"+theme["on_primary_color"]+"")
+        ShopWindow.setStyleSheet("background-color:rgb(255, 255, 255)")
         self.centralwidget = QtWidgets.QWidget(ShopWindow)
         self.centralwidget.setEnabled(True)
         self.centralwidget.setObjectName("centralwidget")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
-        self.stackedWidget.setGeometry(QtCore.QRect(0, 80, 821, 471))
-        self.stackedWidget.setStyleSheet("color:"+theme["on_background_color"]+"")
+        self.stackedWidget.setGeometry(QtCore.QRect(0, 0, 831, 641))
+        self.stackedWidget.setStyleSheet("color:rgb(0, 0, 0)")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page_3 = QtWidgets.QWidget()
         self.page_3.setObjectName("page_3")
         self.pushButton_2 = QtWidgets.QPushButton(self.page_3)
-        self.pushButton_2.setGeometry(QtCore.QRect(510, 140, 231, 171))
+        self.pushButton_2.setGeometry(QtCore.QRect(510, 230, 231, 171))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("background-color:"+theme["secondary_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
+        self.pushButton_2.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
 "border: 2px solid #555;\n"
 "border-radius: 70%;\n"
 "border-style: outset;\n"
-"padding: 5px;")
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(self.page_3)
-        self.pushButton_3.setGeometry(QtCore.QRect(80, 140, 231, 171))
+        self.pushButton_3.setGeometry(QtCore.QRect(80, 220, 231, 171))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_3.setFont(font)
-        self.pushButton_3.setStyleSheet("background-color:"+theme["secondary_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
+        self.pushButton_3.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
 "border: 2px solid #555;\n"
 "border-radius: 70%;\n"
 "border-style: outset;\n"
-"padding: 5px;")
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
         self.pushButton_3.setObjectName("pushButton_3")
         self.textBrowser = QtWidgets.QTextBrowser(self.page_3)
-        self.textBrowser.setGeometry(QtCore.QRect(180, -30, 451, 91))
+        self.textBrowser.setGeometry(QtCore.QRect(180, 40, 451, 91))
         self.textBrowser.setStyleSheet("border-style: hidden;\n"
-"background-color:"+theme["primary_color"]+";\n"
+"background-color:rgb(137, 83, 243);\n"
 "border-radius: 40px;\n"
 "border-style: outset;\n"
-"padding: 5px;")
+"padding: 5px;\n"
+"color:rgb(255, 255, 255)")
         self.textBrowser.setObjectName("textBrowser")
+        self.widget_4 = QtWidgets.QWidget(self.page_3)
+        self.widget_4.setGeometry(QtCore.QRect(-10, 550, 841, 91))
+        self.widget_4.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_4.setObjectName("widget_4")
+        self.widget_2 = QtWidgets.QWidget(self.widget_4)
+        self.widget_2.setGeometry(QtCore.QRect(20, 350, 811, 80))
+        self.widget_2.setStyleSheet("opacity:0")
+        self.widget_2.setObjectName("widget_2")
+        self.widget_3 = QtWidgets.QWidget(self.page_3)
+        self.widget_3.setGeometry(QtCore.QRect(-10, 0, 841, 80))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
+        self.widget_3.setSizePolicy(sizePolicy)
+        self.widget_3.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_3.setObjectName("widget_3")
+        self.label_13 = QtWidgets.QLabel(self.widget_3)
+        self.label_13.setGeometry(QtCore.QRect(670, -20, 181, 111))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_13.sizePolicy().hasHeightForWidth())
+        self.label_13.setSizePolicy(sizePolicy)
+        self.label_13.setText("")
+        self.label_13.setPixmap(QtGui.QPixmap("logo2.png"))
+        self.label_13.setScaledContents(True)
+        self.label_13.setObjectName("label_13")
+        self.pushButton_5 = QtWidgets.QPushButton(self.widget_3)
+        self.pushButton_5.setGeometry(QtCore.QRect(20, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_5.setFont(font)
+        self.pushButton_5.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.pushButton_25 = QtWidgets.QPushButton(self.widget_3)
+        self.pushButton_25.setGeometry(QtCore.QRect(170, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_25.setFont(font)
+        self.pushButton_25.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_25.setObjectName("pushButton_25")
+        self.textBrowser.raise_()
+        self.pushButton_2.raise_()
+        self.pushButton_3.raise_()
+        self.widget_4.raise_()
+        self.widget_3.raise_()
         self.stackedWidget.addWidget(self.page_3)
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
         self.label_3 = QtWidgets.QLabel(self.page)
-        self.label_3.setGeometry(QtCore.QRect(310, 110, 221, 111))
+        self.label_3.setGeometry(QtCore.QRect(310, 220, 221, 111))
+        self.label_3.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("car logos/BMW.PNG"))
+        self.label_3.setPixmap(QtGui.QPixmap("car logos/BMW-removebg-preview.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         self.label_2 = QtWidgets.QLabel(self.page)
-        self.label_2.setGeometry(QtCore.QRect(20, 110, 221, 111))
+        self.label_2.setEnabled(True)
+        self.label_2.setGeometry(QtCore.QRect(20, 220, 221, 111))
+        self.label_2.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("car logos/audi.PNG"))
+        self.label_2.setPixmap(QtGui.QPixmap("car logos/audi-removebg-preview.png"))
         self.label_2.setScaledContents(True)
+        self.label_2.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
         self.label_2.setObjectName("label_2")
         self.label_4 = QtWidgets.QLabel(self.page)
-        self.label_4.setGeometry(QtCore.QRect(600, 100, 221, 111))
+        self.label_4.setGeometry(QtCore.QRect(600, 210, 221, 111))
+        self.label_4.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("car logos/Dacia.jpg"))
+        self.label_4.setPixmap(QtGui.QPixmap("car logos/Dacia-removebg-preview.png"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.page)
-        self.label_5.setGeometry(QtCore.QRect(20, 290, 221, 111))
+        self.label_5.setGeometry(QtCore.QRect(20, 400, 221, 111))
+        self.label_5.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_5.setText("")
-        self.label_5.setPixmap(QtGui.QPixmap("car logos/Hyundai.jpg"))
+        self.label_5.setPixmap(QtGui.QPixmap("car logos/Hyundai-removebg-preview.png"))
         self.label_5.setScaledContents(True)
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(self.page)
-        self.label_6.setGeometry(QtCore.QRect(310, 280, 221, 111))
+        self.label_6.setGeometry(QtCore.QRect(310, 390, 221, 111))
+        self.label_6.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("car logos/mercedes.jpg"))
+        self.label_6.setPixmap(QtGui.QPixmap("car logos/mercedes-removebg-preview.png"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
         self.label_7 = QtWidgets.QLabel(self.page)
-        self.label_7.setGeometry(QtCore.QRect(590, 280, 221, 111))
+        self.label_7.setGeometry(QtCore.QRect(590, 390, 221, 111))
+        self.label_7.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_7.setText("")
-        self.label_7.setPixmap(QtGui.QPixmap("car logos/Volkswagen.jpg"))
+        self.label_7.setPixmap(QtGui.QPixmap("car logos/Volkswagen-removebg-preview.png"))
         self.label_7.setScaledContents(True)
         self.label_7.setObjectName("label_7")
         self.textBrowser_2 = QtWidgets.QTextBrowser(self.page)
-        self.textBrowser_2.setGeometry(QtCore.QRect(180, -30, 451, 91))
+        self.textBrowser_2.setGeometry(QtCore.QRect(180, 40, 451, 91))
         self.textBrowser_2.setStyleSheet("border-style: hidden;\n"
-"background-color:"+theme["primary_color"]+";\n"
+"background-color:rgb(137, 83, 243);\n"
 "border-radius: 40px;\n"
 "border-style: outset;\n"
-"padding: 5px;")
+"padding: 5px;\n"
+"color:rgb(255, 255, 255)")
         self.textBrowser_2.setObjectName("textBrowser_2")
+        self.widget_6 = QtWidgets.QWidget(self.page)
+        self.widget_6.setGeometry(QtCore.QRect(380, 580, 841, 91))
+        self.widget_6.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_6.setObjectName("widget_6")
+        self.widget_7 = QtWidgets.QWidget(self.widget_6)
+        self.widget_7.setGeometry(QtCore.QRect(20, 350, 811, 80))
+        self.widget_7.setStyleSheet("opacity:0")
+        self.widget_7.setObjectName("widget_7")
+        self.pushButton_4 = QtWidgets.QPushButton(self.widget_6)
+        self.pushButton_4.setGeometry(QtCore.QRect(230, 20, 351, 61))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_4.setFont(font)
+        self.pushButton_4.setStyleSheet("background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 20px;\n"
+"border-style: outset;\n"
+"padding: 5px;")
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.widget_9 = QtWidgets.QWidget(self.page)
+        self.widget_9.setGeometry(QtCore.QRect(0, 0, 841, 80))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_9.sizePolicy().hasHeightForWidth())
+        self.widget_9.setSizePolicy(sizePolicy)
+        self.widget_9.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_9.setObjectName("widget_9")
+        self.label_23 = QtWidgets.QLabel(self.widget_9)
+        self.label_23.setGeometry(QtCore.QRect(660, -20, 181, 111))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_23.sizePolicy().hasHeightForWidth())
+        self.label_23.setSizePolicy(sizePolicy)
+        self.label_23.setText("")
+        self.label_23.setPixmap(QtGui.QPixmap("logo2.png"))
+        self.label_23.setScaledContents(True)
+        self.label_23.setObjectName("label_23")
+        self.pushButton_7 = QtWidgets.QPushButton(self.widget_9)
+        self.pushButton_7.setGeometry(QtCore.QRect(10, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_7.setFont(font)
+        self.pushButton_7.setStyleSheet("background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;")
+        self.pushButton_7.setObjectName("pushButton_7")
+        self.widget_12 = QtWidgets.QWidget(self.widget_9)
+        self.widget_12.setGeometry(QtCore.QRect(0, 0, 841, 80))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_12.sizePolicy().hasHeightForWidth())
+        self.widget_12.setSizePolicy(sizePolicy)
+        self.widget_12.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_12.setObjectName("widget_12")
+        self.label_24 = QtWidgets.QLabel(self.widget_12)
+        self.label_24.setGeometry(QtCore.QRect(660, -20, 181, 111))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_24.sizePolicy().hasHeightForWidth())
+        self.label_24.setSizePolicy(sizePolicy)
+        self.label_24.setText("")
+        self.label_24.setPixmap(QtGui.QPixmap("logo2.png"))
+        self.label_24.setScaledContents(True)
+        self.label_24.setObjectName("label_24")
+        self.pushButton_9 = QtWidgets.QPushButton(self.widget_12)
+        self.pushButton_9.setGeometry(QtCore.QRect(10, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_9.setFont(font)
+        self.pushButton_9.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_9.setObjectName("pushButton_9")
+        self.pushButton_16 = QtWidgets.QPushButton(self.widget_12)
+        self.pushButton_16.setGeometry(QtCore.QRect(160, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_16.setFont(font)
+        self.pushButton_16.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_16.setObjectName("pushButton_16")
+        self.widget_13 = QtWidgets.QWidget(self.widget_9)
+        self.widget_13.setGeometry(QtCore.QRect(-10, 550, 841, 91))
+        self.widget_13.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_13.setObjectName("widget_13")
+        self.widget_14 = QtWidgets.QWidget(self.widget_13)
+        self.widget_14.setGeometry(QtCore.QRect(20, 350, 811, 80))
+        self.widget_14.setStyleSheet("opacity:0")
+        self.widget_14.setObjectName("widget_14")
+        self.pushButton_10 = QtWidgets.QPushButton(self.widget_13)
+        self.pushButton_10.setGeometry(QtCore.QRect(230, 20, 351, 61))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_10.setFont(font)
+        self.pushButton_10.setStyleSheet("background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 20px;\n"
+"border-style: outset;\n"
+"padding: 5px;")
+        self.pushButton_10.setObjectName("pushButton_10")
+        self.widget_10 = QtWidgets.QWidget(self.page)
+        self.widget_10.setGeometry(QtCore.QRect(-10, 550, 841, 91))
+        self.widget_10.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_10.setObjectName("widget_10")
+        self.widget_11 = QtWidgets.QWidget(self.widget_10)
+        self.widget_11.setGeometry(QtCore.QRect(20, 350, 811, 80))
+        self.widget_11.setStyleSheet("opacity:0")
+        self.widget_11.setObjectName("widget_11")
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
         self.label_9 = QtWidgets.QLabel(self.page_2)
-        self.label_9.setGeometry(QtCore.QRect(100, 120, 221, 111))
+        self.label_9.setGeometry(QtCore.QRect(100, 240, 221, 111))
+        self.label_9.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_9.setText("")
-        self.label_9.setPixmap(QtGui.QPixmap("car types/Compact.PNG"))
+        self.label_9.setPixmap(QtGui.QPixmap("car types/Compact-removebg-preview.png"))
         self.label_9.setScaledContents(True)
         self.label_9.setObjectName("label_9")
         self.label_10 = QtWidgets.QLabel(self.page_2)
-        self.label_10.setGeometry(QtCore.QRect(510, 110, 221, 111))
+        self.label_10.setGeometry(QtCore.QRect(510, 230, 221, 111))
+        self.label_10.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_10.setText("")
-        self.label_10.setPixmap(QtGui.QPixmap("car types/SUV.PNG"))
+        self.label_10.setPixmap(QtGui.QPixmap("car types/SUV-removebg-preview.png"))
         self.label_10.setScaledContents(True)
         self.label_10.setObjectName("label_10")
         self.label_11 = QtWidgets.QLabel(self.page_2)
-        self.label_11.setGeometry(QtCore.QRect(110, 320, 221, 111))
+        self.label_11.setGeometry(QtCore.QRect(110, 440, 221, 111))
+        self.label_11.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_11.setText("")
-        self.label_11.setPixmap(QtGui.QPixmap("car types/Mid-size.PNG"))
+        self.label_11.setPixmap(QtGui.QPixmap("car types/Mid-size-removebg-preview.png"))
         self.label_11.setScaledContents(True)
         self.label_11.setObjectName("label_11")
         self.label_12 = QtWidgets.QLabel(self.page_2)
-        self.label_12.setGeometry(QtCore.QRect(520, 320, 221, 111))
+        self.label_12.setGeometry(QtCore.QRect(520, 440, 221, 111))
+        self.label_12.setStyleSheet("QLabel:hover{\n"
+"background-color:rgb(227, 131, 246);\n"
+"}\n"
+"QLabel:pressed{\n"
+"background-color:rgb(96, 9, 113);\n"
+"}")
         self.label_12.setText("")
-        self.label_12.setPixmap(QtGui.QPixmap("car types/Cabriolet.PNG"))
+        self.label_12.setPixmap(QtGui.QPixmap("car types/Cabriolet-removebg-preview.png"))
         self.label_12.setScaledContents(True)
         self.label_12.setObjectName("label_12")
-        self.textBrowser_3 = QtWidgets.QTextBrowser(self.page_2)
-        self.textBrowser_3.setGeometry(QtCore.QRect(180, -30, 451, 91))
-        self.textBrowser_3.setStyleSheet("border-style: hidden;\n"
-"background-color:"+theme["primary_color"]+";\n"
-"border-radius: 40px;\n"
+        self.widget_8 = QtWidgets.QWidget(self.page_2)
+        self.widget_8.setGeometry(QtCore.QRect(-10, 550, 841, 91))
+        self.widget_8.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_8.setObjectName("widget_8")
+        self.widget_15 = QtWidgets.QWidget(self.widget_8)
+        self.widget_15.setGeometry(QtCore.QRect(20, 350, 811, 80))
+        self.widget_15.setStyleSheet("opacity:0")
+        self.widget_15.setObjectName("widget_15")
+        self.widget_16 = QtWidgets.QWidget(self.page_2)
+        self.widget_16.setGeometry(QtCore.QRect(0, 0, 841, 80))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_16.sizePolicy().hasHeightForWidth())
+        self.widget_16.setSizePolicy(sizePolicy)
+        self.widget_16.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_16.setObjectName("widget_16")
+        self.label_22 = QtWidgets.QLabel(self.widget_16)
+        self.label_22.setGeometry(QtCore.QRect(660, -20, 181, 111))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_22.sizePolicy().hasHeightForWidth())
+        self.label_22.setSizePolicy(sizePolicy)
+        self.label_22.setText("")
+        self.label_22.setPixmap(QtGui.QPixmap("logo2.png"))
+        self.label_22.setScaledContents(True)
+        self.label_22.setObjectName("label_22")
+        self.pushButton_11 = QtWidgets.QPushButton(self.widget_16)
+        self.pushButton_11.setGeometry(QtCore.QRect(10, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_11.setFont(font)
+        self.pushButton_11.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
 "border-style: outset;\n"
-"padding: 5px;")
-        self.textBrowser_3.setObjectName("textBrowser_3")
-        self.stackedWidget.addWidget(self.page_2)
-        self.page_4 = QtWidgets.QWidget()
-        self.page_4.setObjectName("page_4")
-        self.textBrowser_4 = QtWidgets.QTextBrowser(self.page_4)
-        self.textBrowser_4.setGeometry(QtCore.QRect(180, -40, 451, 91))
-        self.textBrowser_4.setStyleSheet("border-style: hidden;\n"
-"background-color:"+theme["primary_color"]+";\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_11.setObjectName("pushButton_11")
+        self.pushButton_21 = QtWidgets.QPushButton(self.widget_16)
+        self.pushButton_21.setGeometry(QtCore.QRect(160, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_21.setFont(font)
+        self.pushButton_21.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_21.setObjectName("pushButton_21")
+        self.textBrowser_3 = QtWidgets.QTextBrowser(self.page_2)
+        self.textBrowser_3.setGeometry(QtCore.QRect(180, 40, 451, 91))
+        self.textBrowser_3.setStyleSheet("border-style: hidden;\n"
+"background-color:rgb(137, 83, 243);\n"
 "border-radius: 40px;\n"
 "border-style: outset;\n"
 "padding: 5px;\n"
-"color:"+theme["on_primary_color"]+"")
-        self.textBrowser_4.setObjectName("textBrowser_4")
+"color:rgb(255, 255, 255);")
+        self.textBrowser_3.setObjectName("textBrowser_3")
+        self.textBrowser_3.raise_()
+        self.label_9.raise_()
+        self.label_10.raise_()
+        self.label_11.raise_()
+        self.label_12.raise_()
+        self.widget_8.raise_()
+        self.widget_16.raise_()
+        self.stackedWidget.addWidget(self.page_2)
+        self.page_4 = QtWidgets.QWidget()
+        self.page_4.setObjectName("page_4")
         self.widget = QtWidgets.QWidget(self.page_4)
-        self.widget.setGeometry(QtCore.QRect(420, 60, 391, 391))
-        self.widget.setStyleSheet("background-color:"+theme["secondary_variant_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
+        self.widget.setGeometry(QtCore.QRect(420, 140, 391, 391))
+        self.widget.setStyleSheet("background-color:rgb(227, 131, 246);\n"
+"color:rgb(0, 0, 0);\n"
 "border-radius:10px;")
         self.widget.setObjectName("widget")
         self.label_17 = QtWidgets.QLabel(self.widget)
@@ -178,10 +541,16 @@ class Ui_ShopWindow(object):
         self.label_17.setObjectName("label_17")
         self.lineEdit_6 = QtWidgets.QLineEdit(self.widget)
         self.lineEdit_6.setGeometry(QtCore.QRect(170, 210, 211, 31))
-        self.lineEdit_6.setStyleSheet("color:"+theme["on_primary_color"]+";\n"
+        self.lineEdit_6.setStyleSheet("QLineEdit{color:rgb(0, 0, 0);\n"
 "border-style:solid;\n"
-"border-color:"+theme["on_primary_color"]+";\n"
-"border-width:1px;")
+"border-color:rgb(0, 0, 0);\n"
+"border-width:1px\n"
+"}\n"
+"QLineEdit:focus{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-width:1px\n"
+"}")
         self.lineEdit_6.setObjectName("lineEdit_6")
         self.label_19 = QtWidgets.QLabel(self.widget)
         self.label_19.setGeometry(QtCore.QRect(10, 110, 141, 20))
@@ -193,10 +562,16 @@ class Ui_ShopWindow(object):
         self.label_19.setObjectName("label_19")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.widget)
         self.lineEdit_4.setGeometry(QtCore.QRect(170, 160, 211, 31))
-        self.lineEdit_4.setStyleSheet("border-style:solid;\n"
-"border-color:"+theme["on_primary_color"]+";\n"
-"border-width:1px;\n"
-"color:"+theme["on_primary_color"]+";")
+        self.lineEdit_4.setStyleSheet("QLineEdit{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(0, 0, 0);\n"
+"border-width:1px\n"
+"}\n"
+"QLineEdit:focus{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-width:1px\n"
+"}")
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.label_20 = QtWidgets.QLabel(self.widget)
         self.label_20.setGeometry(QtCore.QRect(10, 160, 141, 20))
@@ -208,10 +583,16 @@ class Ui_ShopWindow(object):
         self.label_20.setObjectName("label_20")
         self.lineEdit_5 = QtWidgets.QLineEdit(self.widget)
         self.lineEdit_5.setGeometry(QtCore.QRect(170, 110, 211, 31))
-        self.lineEdit_5.setStyleSheet("color:"+theme["on_primary_color"]+";\n"
+        self.lineEdit_5.setStyleSheet("QLineEdit{color:rgb(0, 0, 0);\n"
 "border-style:solid;\n"
-"border-color:"+theme["on_primary_color"]+";\n"
-"border-width:1px;")
+"border-color:rgb(0, 0, 0);\n"
+"border-width:1px\n"
+"}\n"
+"QLineEdit:focus{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-width:1px\n"
+"}")
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.label_18 = QtWidgets.QLabel(self.widget)
         self.label_18.setGeometry(QtCore.QRect(10, 210, 121, 20))
@@ -231,10 +612,16 @@ class Ui_ShopWindow(object):
         self.label_21.setObjectName("label_21")
         self.lineEdit_7 = QtWidgets.QLineEdit(self.widget)
         self.lineEdit_7.setGeometry(QtCore.QRect(170, 260, 211, 31))
-        self.lineEdit_7.setStyleSheet("color:"+theme["on_primary_color"]+";\n"
+        self.lineEdit_7.setStyleSheet("QLineEdit{color:rgb(0, 0, 0);\n"
 "border-style:solid;\n"
-"border-color:"+theme["on_primary_color"]+";\n"
-"border-width:1px;")
+"border-color:rgb(0, 0, 0);\n"
+"border-width:1px\n"
+"}\n"
+"QLineEdit:focus{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-width:1px\n"
+"}")
         self.lineEdit_7.setObjectName("lineEdit_7")
         self.label_27 = QtWidgets.QLabel(self.widget)
         self.label_27.setGeometry(QtCore.QRect(90, 330, 61, 20))
@@ -253,31 +640,49 @@ class Ui_ShopWindow(object):
         self.label_28.setFont(font)
         self.label_28.setObjectName("label_28")
         self.widget_5 = QtWidgets.QWidget(self.page_4)
-        self.widget_5.setGeometry(QtCore.QRect(10, 60, 391, 391))
-        self.widget_5.setStyleSheet("background-color:"+theme["secondary_variant_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
+        self.widget_5.setGeometry(QtCore.QRect(10, 140, 391, 391))
+        self.widget_5.setStyleSheet("background-color:rgb(227, 131, 246);\n"
+"color:rgb(0, 0, 0);\n"
 "border-radius:10px;")
         self.widget_5.setObjectName("widget_5")
         self.lineEdit = QtWidgets.QLineEdit(self.widget_5)
         self.lineEdit.setGeometry(QtCore.QRect(170, 130, 211, 31))
-        self.lineEdit.setStyleSheet("color:"+theme["on_primary_color"]+";\n"
+        self.lineEdit.setStyleSheet("QLineEdit{color:rgb(0, 0, 0);\n"
 "border-style:solid;\n"
-"border-color:"+theme["on_primary_color"]+";\n"
-"border-width:1px")
+"border-color:rgb(0, 0, 0);\n"
+"border-width:1px\n"
+"}\n"
+"QLineEdit:focus{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-width:1px\n"
+"}")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.widget_5)
         self.lineEdit_2.setGeometry(QtCore.QRect(170, 180, 211, 31))
-        self.lineEdit_2.setStyleSheet("border-style:solid;\n"
-"border-color:"+theme["on_primary_color"]+";\n"
-"border-width:1px;\n"
-"color:"+theme["on_primary_color"]+";")
+        self.lineEdit_2.setStyleSheet("QLineEdit{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(0, 0, 0);\n"
+"border-width:1px\n"
+"}\n"
+"QLineEdit:focus{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-width:1px\n"
+"}")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.widget_5)
         self.lineEdit_3.setGeometry(QtCore.QRect(170, 230, 211, 31))
-        self.lineEdit_3.setStyleSheet("color:"+theme["on_primary_color"]+";\n"
+        self.lineEdit_3.setStyleSheet("QLineEdit{color:rgb(0, 0, 0);\n"
 "border-style:solid;\n"
-"border-color:"+theme["on_primary_color"]+";\n"
-"border-width:1px")
+"border-color:rgb(0, 0, 0);\n"
+"border-width:1px\n"
+"}\n"
+"QLineEdit:focus{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-width:1px\n"
+"}")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.label = QtWidgets.QLabel(self.widget_5)
         self.label.setGeometry(QtCore.QRect(30, 130, 101, 20))
@@ -313,9 +718,16 @@ class Ui_ShopWindow(object):
         self.label_15.setObjectName("label_15")
         self.textEdit = QtWidgets.QTextEdit(self.widget_5)
         self.textEdit.setGeometry(QtCore.QRect(170, 280, 211, 101))
-        self.textEdit.setStyleSheet("border-style:solid;\n"
-"border-color:"+theme["on_primary_color"]+";\n"
-"border-width:1px")
+        self.textEdit.setStyleSheet("QTextEdit{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(0, 0, 0);\n"
+"border-width:1px\n"
+"}\n"
+"QTextEdit:focus{color:rgb(0, 0, 0);\n"
+"border-style:solid;\n"
+"border-color:rgb(255, 255, 255);\n"
+"border-width:1px\n"
+"}")
         self.textEdit.setObjectName("textEdit")
         self.label_16 = QtWidgets.QLabel(self.widget_5)
         self.label_16.setGeometry(QtCore.QRect(50, 20, 301, 51))
@@ -325,70 +737,136 @@ class Ui_ShopWindow(object):
         font.setWeight(75)
         self.label_16.setFont(font)
         self.label_16.setObjectName("label_16")
-        self.widget.raise_()
-        self.widget_5.raise_()
-        self.textBrowser_4.raise_()
-        self.stackedWidget.addWidget(self.page_4)
-        self.widget_3 = QtWidgets.QWidget(self.centralwidget)
-        self.widget_3.setGeometry(QtCore.QRect(0, 0, 841, 80))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
-        self.widget_3.setSizePolicy(sizePolicy)
-        self.widget_3.setStyleSheet("background-color:"+theme["primary_color"]+"")
-        self.widget_3.setObjectName("widget_3")
-        self.label_13 = QtWidgets.QLabel(self.widget_3)
-        self.label_13.setGeometry(QtCore.QRect(660, -20, 181, 111))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_13.sizePolicy().hasHeightForWidth())
-        self.label_13.setSizePolicy(sizePolicy)
-        self.label_13.setText("")
-        self.label_13.setPixmap(QtGui.QPixmap("logo2.png"))
-        self.label_13.setScaledContents(True)
-        self.label_13.setObjectName("label_13")
-        self.pushButton_5 = QtWidgets.QPushButton(self.widget_3)
-        self.pushButton_5.setGeometry(QtCore.QRect(10, 20, 141, 41))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_5.setFont(font)
-        self.pushButton_5.setStyleSheet("background-color:"+theme["secondary_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
-"border: 2px solid #555;\n"
-"border-radius: 15px;\n"
-"border-style: outset;\n"
-"padding: 5px;")
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.widget_4 = QtWidgets.QWidget(self.centralwidget)
-        self.widget_4.setGeometry(QtCore.QRect(-10, 550, 841, 91))
-        self.widget_4.setStyleSheet("background-color:"+theme["primary_color"]+"")
-        self.widget_4.setObjectName("widget_4")
-        self.widget_2 = QtWidgets.QWidget(self.widget_4)
-        self.widget_2.setGeometry(QtCore.QRect(20, 350, 811, 80))
-        self.widget_2.setStyleSheet("opacity:0")
-        self.widget_2.setObjectName("widget_2")
-        self.pushButton = QtWidgets.QPushButton(self.widget_4)
-        self.pushButton.setGeometry(QtCore.QRect(230, 20, 351, 61))
+        self.widget_21 = QtWidgets.QWidget(self.page_4)
+        self.widget_21.setGeometry(QtCore.QRect(280, 740, 841, 91))
+        self.widget_21.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_21.setObjectName("widget_21")
+        self.widget_22 = QtWidgets.QWidget(self.widget_21)
+        self.widget_22.setGeometry(QtCore.QRect(20, 350, 811, 80))
+        self.widget_22.setStyleSheet("opacity:0")
+        self.widget_22.setObjectName("widget_22")
+        self.pushButton_17 = QtWidgets.QPushButton(self.widget_21)
+        self.pushButton_17.setGeometry(QtCore.QRect(230, 20, 351, 61))
         font = QtGui.QFont()
         font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("background-color:"+theme["secondary_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
+        self.pushButton_17.setFont(font)
+        self.pushButton_17.setStyleSheet("background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
 "border: 2px solid #555;\n"
 "border-radius: 20px;\n"
 "border-style: outset;\n"
 "padding: 5px;")
-        self.pushButton.setObjectName("pushButton")
+        self.pushButton_17.setObjectName("pushButton_17")
+        self.widget_27 = QtWidgets.QWidget(self.page_4)
+        self.widget_27.setGeometry(QtCore.QRect(-10, 550, 841, 91))
+        self.widget_27.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_27.setObjectName("widget_27")
+        self.widget_28 = QtWidgets.QWidget(self.widget_27)
+        self.widget_28.setGeometry(QtCore.QRect(20, 350, 811, 80))
+        self.widget_28.setStyleSheet("opacity:0")
+        self.widget_28.setObjectName("widget_28")
+        self.pushButton_23 = QtWidgets.QPushButton(self.widget_27)
+        self.pushButton_23.setGeometry(QtCore.QRect(230, 20, 351, 61))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_23.setFont(font)
+        self.pushButton_23.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_23.setObjectName("pushButton_23")
+        self.widget_29 = QtWidgets.QWidget(self.page_4)
+        self.widget_29.setGeometry(QtCore.QRect(-10, 0, 841, 80))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.widget_29.sizePolicy().hasHeightForWidth())
+        self.widget_29.setSizePolicy(sizePolicy)
+        self.widget_29.setStyleSheet("background-color:rgb(137, 83, 243)")
+        self.widget_29.setObjectName("widget_29")
+        self.label_32 = QtWidgets.QLabel(self.widget_29)
+        self.label_32.setGeometry(QtCore.QRect(670, -20, 181, 111))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_32.sizePolicy().hasHeightForWidth())
+        self.label_32.setSizePolicy(sizePolicy)
+        self.label_32.setText("")
+        self.label_32.setPixmap(QtGui.QPixmap("logo2.png"))
+        self.label_32.setScaledContents(True)
+        self.label_32.setObjectName("label_32")
+        self.pushButton_24 = QtWidgets.QPushButton(self.widget_29)
+        self.pushButton_24.setGeometry(QtCore.QRect(20, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_24.setFont(font)
+        self.pushButton_24.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_24.setObjectName("pushButton_24")
+        self.pushButton_22 = QtWidgets.QPushButton(self.widget_29)
+        self.pushButton_22.setGeometry(QtCore.QRect(170, 20, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_22.setFont(font)
+        self.pushButton_22.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
+"color:rgb(255, 255, 255);\n"
+"border: 2px solid #555;\n"
+"border-radius: 15px;\n"
+"border-style: outset;\n"
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(227, 131, 246);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(96, 9, 114);\n"
+"}")
+        self.pushButton_22.setObjectName("pushButton_22")
+        self.textBrowser_4 = QtWidgets.QTextBrowser(self.page_4)
+        self.textBrowser_4.setGeometry(QtCore.QRect(180, 40, 451, 91))
+        self.textBrowser_4.setStyleSheet("border-style: hidden;\n"
+"background-color:rgb(137, 83, 243);\n"
+"border-radius: 40px;\n"
+"border-style: outset;\n"
+"padding: 5px;\n"
+"color:rgb(255, 255, 255)")
+        self.textBrowser_4.setObjectName("textBrowser_4")
+        self.textBrowser_4.raise_()
+        self.widget.raise_()
+        self.widget_5.raise_()
+        self.widget_21.raise_()
+        self.widget_27.raise_()
+        self.widget_29.raise_()
+        self.stackedWidget.addWidget(self.page_4)
         ShopWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(ShopWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(ShopWindow)
 
     def retranslateUi(self, ShopWindow):
@@ -403,6 +881,8 @@ class Ui_ShopWindow(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">New car or Old car</span></p></body></html>"))
+        self.pushButton_5.setText(_translate("ShopWindow", "Back"))
+        self.pushButton_25.setText(_translate("ShopWindow", "Main Menu"))
         self.textBrowser_2.setHtml(_translate("ShopWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -410,6 +890,13 @@ class Ui_ShopWindow(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">Choose the car company</span></p></body></html>"))
+        self.pushButton_4.setText(_translate("ShopWindow", "Finish Transaction"))
+        self.pushButton_7.setText(_translate("ShopWindow", "Main Menu"))
+        self.pushButton_9.setText(_translate("ShopWindow", "Back"))
+        self.pushButton_16.setText(_translate("ShopWindow", "Main Menu"))
+        self.pushButton_10.setText(_translate("ShopWindow", "Finish Transaction"))
+        self.pushButton_11.setText(_translate("ShopWindow", "Back"))
+        self.pushButton_21.setText(_translate("ShopWindow", "Main Menu"))
         self.textBrowser_3.setHtml(_translate("ShopWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -417,13 +904,6 @@ class Ui_ShopWindow(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">Choose the car type</span></p></body></html>"))
-        self.textBrowser_4.setHtml(_translate("ShopWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">Insert your informations</span></p></body></html>"))
         self.label_17.setText(_translate("ShopWindow", "Payment information"))
         self.label_19.setText(_translate("ShopWindow", "Card number"))
         self.label_20.setText(_translate("ShopWindow", "Name on card"))
@@ -436,7 +916,14 @@ class Ui_ShopWindow(object):
         self.label_14.setText(_translate("ShopWindow", "Personal ID"))
         self.label_15.setText(_translate("ShopWindow", "Adress"))
         self.label_16.setText(_translate("ShopWindow", "Personal information"))
-        self.pushButton_5.setText(_translate("ShopWindow", "Main Menu"))
-        self.pushButton.setText(_translate("ShopWindow", "Finish Transaction"))
-
-
+        self.pushButton_17.setText(_translate("ShopWindow", "Finish Transaction"))
+        self.pushButton_23.setText(_translate("ShopWindow", "Finish Transaction"))
+        self.pushButton_24.setText(_translate("ShopWindow", "Back"))
+        self.pushButton_22.setText(_translate("ShopWindow", "Main Menu"))
+        self.textBrowser_4.setHtml(_translate("ShopWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">Insert your informations</span></p></body></html>"))

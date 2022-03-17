@@ -54,7 +54,7 @@ color:rgb(255, 255, 255)</string>
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>30</x>
         <y>20</y>
         <width>141</width>
         <height>41</height>
@@ -68,12 +68,18 @@ color:rgb(255, 255, 255)</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(177, 15, 210);
+       <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
       </property>
       <property name="text">
        <string>Languages</string>
@@ -147,12 +153,18 @@ padding: 5px;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgb(177, 15, 210);
+      <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
-border-radius: 20px;
+border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
      </property>
      <property name="text">
       <string>View purchases</string>
@@ -175,12 +187,18 @@ padding: 5px;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:rgb(177, 15, 210);
+      <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
-border-radius: 20px;
+border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
      </property>
      <property name="text">
       <string>Begin transaction</string>

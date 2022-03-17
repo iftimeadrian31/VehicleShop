@@ -13,9 +13,8 @@ import json
 from shop import Ui_ShopWindow
 from purchases import Ui_PurchasesWindow
 
-
 class Ui_StartingWindow(object):
-
+    
     def openShop(self):
         self.window=QtWidgets.QMainWindow()
         self.ui=Ui_ShopWindow()
@@ -38,13 +37,15 @@ class Ui_StartingWindow(object):
         StartingWindow.setObjectName("StartingWindow")
         StartingWindow.resize(831, 643)
         self.myWindow=StartingWindow
+        StartingWindow.setObjectName("StartingWindow")
+        StartingWindow.resize(831, 643)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(StartingWindow.sizePolicy().hasHeightForWidth())
         StartingWindow.setSizePolicy(sizePolicy)
         StartingWindow.setStyleSheet("background-color:"+theme["primary_variant_color"]+";\n"
-"color:"+theme["on_primary_color"]+"")
+"color:"+theme["background_color"]+"")
         self.centralwidget = QtWidgets.QWidget(StartingWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.widget_3 = QtWidgets.QWidget(self.centralwidget)
@@ -59,22 +60,29 @@ class Ui_StartingWindow(object):
         self.widget.setSizePolicy(sizePolicy)
         self.widget.setStyleSheet("background-color:"+theme["primary_color"]+"")
         self.widget.setObjectName("widget")
-        self.pushButton_3 = QtWidgets.QPushButton(self.widget)
-        self.pushButton_3.setGeometry(QtCore.QRect(10, 20, 141, 41))
+        self.pushButton_3 = QtWidgets.QPushButton(self.widget,)
+        self.pushButton_3.setGeometry(QtCore.QRect(30, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_3.setFont(font)
-        self.pushButton_3.setStyleSheet("background-color:"+theme["secondary_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
+        self.pushButton_3.setStyleSheet("QPushButton{background-color:"+theme["secondary_color"]+";\n"
+"color:rgb(255, 255, 255);\n"
 "border: 2px solid #555;\n"
 "border-radius: 15px;\n"
 "border-style: outset;\n"
-"padding: 5px;")
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: "+theme["secondary_light_variant_color"]+";\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: "+theme["secondary_dark_variant_color"]+";\n"
+"}")
         self.pushButton_3.setObjectName("pushButton_3")
         self.label = QtWidgets.QLabel(self.widget)
         self.label.setGeometry(QtCore.QRect(660, -20, 181, 111))
+        self.label.setStyleSheet("")
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap("logo2.png"))
         self.label.setScaledContents(True)
@@ -96,12 +104,18 @@ class Ui_StartingWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("background-color:"+theme["secondary_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
+        self.pushButton_2.setStyleSheet("QPushButton{background-color:"+theme["secondary_color"]+";\n"
+"color:rgb(255, 255, 255);\n"
 "border: 2px solid #555;\n"
-"border-radius: 20px;\n"
+"border-radius: 15px;\n"
 "border-style: outset;\n"
-"padding: 5px;")
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: "+theme["secondary_light_variant_color"]+";\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: "+theme["secondary_dark_variant_color"]+";\n"
+"}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton = QtWidgets.QPushButton(self.widget_4,clicked = lambda:self.openShop())
         self.pushButton.setGeometry(QtCore.QRect(30, 10, 351, 61))
@@ -110,12 +124,18 @@ class Ui_StartingWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("background-color:"+theme["secondary_color"]+";\n"
-"color:"+theme["on_primary_color"]+";\n"
+        self.pushButton.setStyleSheet("QPushButton{background-color:"+theme["secondary_color"]+";\n"
+"color:rgb(255, 255, 255);\n"
 "border: 2px solid #555;\n"
-"border-radius: 20px;\n"
+"border-radius: 15px;\n"
 "border-style: outset;\n"
-"padding: 5px;")
+"padding: 5px;}\n"
+"QPushButton:hover {\n"
+"    background-color: "+theme["secondary_light_variant_color"]+";\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: "+theme["secondary_dark_variant_color"]+";\n"
+"}")
         self.pushButton.setObjectName("pushButton")
         self.widget_5 = QtWidgets.QWidget(self.centralwidget)
         self.widget_5.setGeometry(QtCore.QRect(-40, 80, 921, 471))

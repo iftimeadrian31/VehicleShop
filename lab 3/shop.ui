@@ -39,7 +39,7 @@
      <string notr="true">color:rgb(0, 0, 0)</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QPushButton" name="pushButton_2">
@@ -59,12 +59,18 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(177, 15, 210);
+       <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 70%;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
       </property>
       <property name="text">
        <string>Second Hand Car</string>
@@ -87,12 +93,18 @@ padding: 5px;</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(177, 15, 210);
+       <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 70%;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
       </property>
       <property name="text">
        <string>New Car</string>
@@ -185,7 +197,7 @@ p, li { white-space: pre-wrap; }
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string notr="true">background_color:rgb(80, 15, 210)</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -214,12 +226,18 @@ p, li { white-space: pre-wrap; }
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Back</string>
@@ -242,12 +260,18 @@ padding: 5px;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Main Menu</string>
@@ -270,17 +294,28 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car logos/BMW.PNG</pixmap>
+       <pixmap>car logos/BMW-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -289,14 +324,25 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car logos/audi.PNG</pixmap>
+       <pixmap>car logos/audi-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::NoTextInteraction</set>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
@@ -308,11 +354,19 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car logos/Dacia.jpg</pixmap>
+       <pixmap>car logos/Dacia-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -327,11 +381,19 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car logos/Hyundai.jpg</pixmap>
+       <pixmap>car logos/Hyundai-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -346,11 +408,19 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car logos/mercedes.jpg</pixmap>
+       <pixmap>car logos/mercedes-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -365,11 +435,19 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car logos/Volkswagen.jpg</pixmap>
+       <pixmap>car logos/Volkswagen-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -564,7 +642,7 @@ padding: 5px;</string>
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">background_color:rgb(80, 15, 210)</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -593,12 +671,18 @@ padding: 5px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color:rgb(177, 15, 210);
+         <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
         </property>
         <property name="text">
          <string>Back</string>
@@ -621,12 +705,18 @@ padding: 5px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color:rgb(177, 15, 210);
+         <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
         </property>
         <property name="text">
          <string>Main Menu</string>
@@ -725,11 +815,19 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car types/Compact.PNG</pixmap>
+       <pixmap>car types/Compact-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -744,11 +842,19 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car types/SUV.PNG</pixmap>
+       <pixmap>car types/SUV-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -763,11 +869,19 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car types/Mid-size.PNG</pixmap>
+       <pixmap>car types/Mid-size-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -782,11 +896,19 @@ padding: 5px;</string>
         <height>111</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel:hover{
+background-color:rgb(227, 131, 246);
+}
+QLabel:pressed{
+background-color:rgb(96, 9, 113);
+}</string>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>car types/Cabriolet.PNG</pixmap>
+       <pixmap>car types/Cabriolet-removebg-preview.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -852,7 +974,7 @@ padding: 5px;</string>
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string notr="true">background_color:rgb(80, 15, 210)</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -881,12 +1003,18 @@ padding: 5px;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Back</string>
@@ -909,12 +1037,18 @@ padding: 5px;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Main Menu</string>
@@ -968,7 +1102,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(227, 131, 246);
-color:rgb(255, 255, 255);
+color:rgb(0, 0, 0);
 border-radius:10px;</string>
       </property>
       <widget class="QLabel" name="label_17">
@@ -1001,10 +1135,16 @@ border-radius:10px;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:rgb(255, 255, 255);
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
 border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px;</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_19">
@@ -1037,10 +1177,16 @@ border-width:1px;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-style:solid;
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
+border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px;
-color:rgb(255, 255, 255);</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_20">
@@ -1073,10 +1219,16 @@ color:rgb(255, 255, 255);</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:rgb(255, 255, 255);
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
 border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px;</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_18">
@@ -1129,10 +1281,16 @@ border-width:1px;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:rgb(255, 255, 255);
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
 border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px;</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_27">
@@ -1187,7 +1345,7 @@ border-width:1px;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(227, 131, 246);
-color:rgb(255, 255, 255);
+color:rgb(0, 0, 0);
 border-radius:10px;</string>
       </property>
       <widget class="QLineEdit" name="lineEdit">
@@ -1200,10 +1358,16 @@ border-radius:10px;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:rgb(255, 255, 255);
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
 border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_2">
@@ -1216,10 +1380,16 @@ border-width:1px</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-style:solid;
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
+border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px;
-color:rgb(255, 255, 255);</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_3">
@@ -1232,10 +1402,16 @@ color:rgb(255, 255, 255);</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">color:rgb(255, 255, 255);
+        <string notr="true">QLineEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QLineEdit:focus{color:rgb(0, 0, 0);
 border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLabel" name="label">
@@ -1328,9 +1504,16 @@ border-width:1px</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-style:solid;
+        <string notr="true">QTextEdit{color:rgb(0, 0, 0);
+border-style:solid;
+border-color:rgb(0, 0, 0);
+border-width:1px
+}
+QTextEdit:focus{color:rgb(0, 0, 0);
+border-style:solid;
 border-color:rgb(255, 255, 255);
-border-width:1px</string>
+border-width:1px
+}</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_16">
@@ -1450,12 +1633,18 @@ padding: 5px;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
-border-radius: 20px;
+border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Finish Transaction</string>
@@ -1496,7 +1685,7 @@ padding: 5px;</string>
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string notr="true">background_color:rgb(80, 15, 210)</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -1525,12 +1714,18 @@ padding: 5px;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Back</string>
@@ -1553,12 +1748,18 @@ padding: 5px;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(177, 15, 210);
+        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
 color:rgb(255, 255, 255);
 border: 2px solid #555;
 border-radius: 15px;
 border-style: outset;
-padding: 5px;</string>
+padding: 5px;}
+QPushButton:hover {
+    background-color: rgb(227, 131, 246);
+}
+QPushButton:pressed {
+    background-color: rgb(96, 9, 114);
+}</string>
        </property>
        <property name="text">
         <string>Main Menu</string>

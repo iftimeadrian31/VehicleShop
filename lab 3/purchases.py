@@ -29,9 +29,9 @@ class Ui_PurchasesWindow(object):
         self.stackedWidget.setGeometry(QtCore.QRect(-10, 0, 841, 651))
         self.stackedWidget.setStyleSheet("")
         self.stackedWidget.setObjectName("stackedWidget")
-        self.stackedWidgetPage1 = QtWidgets.QWidget()
-        self.stackedWidgetPage1.setObjectName("stackedWidgetPage1")
-        self.tableWidget = QtWidgets.QTableWidget(self.stackedWidgetPage1)
+        self.page_0 = QtWidgets.QWidget()
+        self.page_0.setObjectName("page_0")
+        self.tableWidget = QtWidgets.QTableWidget(self.page_0)
         self.tableWidget.setGeometry(QtCore.QRect(40, 220, 771, 341))
         self.tableWidget.setStyleSheet("")
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
@@ -106,7 +106,7 @@ class Ui_PurchasesWindow(object):
         self.tableWidget.setItem(0, 4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setItem(0, 5, item)
-        self.textBrowser = QtWidgets.QTextBrowser(self.stackedWidgetPage1)
+        self.textBrowser = QtWidgets.QTextBrowser(self.page_0)
         self.textBrowser.setGeometry(QtCore.QRect(210, 40, 451, 91))
         self.textBrowser.setStyleSheet("border-style: hidden;\n"
 "background-color:rgb(137, 83, 243);\n"
@@ -115,7 +115,7 @@ class Ui_PurchasesWindow(object):
 "padding: 5px;\n"
 "color:rgb(255, 255, 255)")
         self.textBrowser.setObjectName("textBrowser")
-        self.widget_4 = QtWidgets.QWidget(self.stackedWidgetPage1)
+        self.widget_4 = QtWidgets.QWidget(self.page_0)
         self.widget_4.setGeometry(QtCore.QRect(10, 570, 841, 81))
         self.widget_4.setStyleSheet("background-color:rgb(137, 83, 243)")
         self.widget_4.setObjectName("widget_4")
@@ -123,7 +123,7 @@ class Ui_PurchasesWindow(object):
         self.widget_2.setGeometry(QtCore.QRect(20, 350, 811, 80))
         self.widget_2.setStyleSheet("opacity:0")
         self.widget_2.setObjectName("widget_2")
-        self.widget_3 = QtWidgets.QWidget(self.stackedWidgetPage1)
+        self.widget_3 = QtWidgets.QWidget(self.page_0)
         self.widget_3.setGeometry(QtCore.QRect(10, 0, 831, 80))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -159,10 +159,10 @@ class Ui_PurchasesWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_5.setObjectName("pushButton_5")
-        self.stackedWidget.addWidget(self.stackedWidgetPage1)
-        self.page = QtWidgets.QWidget()
-        self.page.setObjectName("page")
-        self.widget_5 = QtWidgets.QWidget(self.page)
+        self.stackedWidget.addWidget(self.page_0)
+        self.page_1 = QtWidgets.QWidget()
+        self.page_1.setObjectName("page")
+        self.widget_5 = QtWidgets.QWidget(self.page_1)
         self.widget_5.setGeometry(QtCore.QRect(70, 150, 711, 411))
         self.widget_5.setStyleSheet("background-color:rgb(227, 131, 246);\n"
 "color:rgb(0, 0, 0);\n"
@@ -260,7 +260,7 @@ class Ui_PurchasesWindow(object):
         font.setWeight(75)
         self.label_19.setFont(font)
         self.label_19.setObjectName("label_19")
-        self.textBrowser_4 = QtWidgets.QTextBrowser(self.page)
+        self.textBrowser_4 = QtWidgets.QTextBrowser(self.page_1)
         self.textBrowser_4.setGeometry(QtCore.QRect(210, 40, 451, 91))
         self.textBrowser_4.setStyleSheet("border-style: hidden;\n"
 "background-color:rgb(137, 83, 243);\n"
@@ -269,7 +269,7 @@ class Ui_PurchasesWindow(object):
 "padding: 5px;\n"
 "color:rgb(255, 255, 255)")
         self.textBrowser_4.setObjectName("textBrowser_4")
-        self.widget_6 = QtWidgets.QWidget(self.page)
+        self.widget_6 = QtWidgets.QWidget(self.page_1)
         self.widget_6.setGeometry(QtCore.QRect(830, 580, 841, 81))
         self.widget_6.setStyleSheet("background-color:rgb(137, 83, 243)")
         self.widget_6.setObjectName("widget_6")
@@ -277,7 +277,7 @@ class Ui_PurchasesWindow(object):
         self.widget_8.setGeometry(QtCore.QRect(20, 350, 811, 80))
         self.widget_8.setStyleSheet("opacity:0")
         self.widget_8.setObjectName("widget_8")
-        self.widget_10 = QtWidgets.QWidget(self.page)
+        self.widget_10 = QtWidgets.QWidget(self.page_1)
         self.widget_10.setGeometry(QtCore.QRect(10, 0, 831, 80))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -333,7 +333,7 @@ class Ui_PurchasesWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_9.setObjectName("pushButton_9")
-        self.widget_11 = QtWidgets.QWidget(self.page)
+        self.widget_11 = QtWidgets.QWidget(self.page_1)
         self.widget_11.setGeometry(QtCore.QRect(10, 570, 841, 81))
         self.widget_11.setStyleSheet("background-color:rgb(137, 83, 243)")
         self.widget_11.setObjectName("widget_11")
@@ -341,7 +341,7 @@ class Ui_PurchasesWindow(object):
         self.widget_12.setGeometry(QtCore.QRect(20, 350, 811, 80))
         self.widget_12.setStyleSheet("opacity:0")
         self.widget_12.setObjectName("widget_12")
-        self.stackedWidget.addWidget(self.page)
+        self.stackedWidget.addWidget(self.page_1)
         PurchasesWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(PurchasesWindow)

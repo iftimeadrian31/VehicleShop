@@ -38,7 +38,7 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="stackedWidgetPage1">
+    <widget class="QWidget" name="page_0">
      <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
        <rect>
@@ -347,7 +347,7 @@ QPushButton:pressed {
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="page">
+    <widget class="QWidget" name="page_1">
      <widget class="QWidget" name="widget_5" native="true">
       <property name="geometry">
        <rect>

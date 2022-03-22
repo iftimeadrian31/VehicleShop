@@ -13,6 +13,10 @@ import json
 
 
 class Ui_ShopWindow(object):
+
+    def display(self,i):
+        self.stackedWidget.setCurrentIndex(i)
+
     def setupUi(self, ShopWindow):
         theme_file=open("theme.json")
         theme=json.load(theme_file)
@@ -31,9 +35,9 @@ class Ui_ShopWindow(object):
         self.stackedWidget.setGeometry(QtCore.QRect(0, 0, 831, 641))
         self.stackedWidget.setStyleSheet("color:rgb(0, 0, 0)")
         self.stackedWidget.setObjectName("stackedWidget")
-        self.page_3 = QtWidgets.QWidget()
-        self.page_3.setObjectName("page_3")
-        self.pushButton_2 = QtWidgets.QPushButton(self.page_3)
+        self.page_0 = QtWidgets.QWidget()
+        self.page_0.setObjectName("page_0")
+        self.pushButton_2 = QtWidgets.QPushButton(self.page_0)
         self.pushButton_2.setGeometry(QtCore.QRect(510, 230, 231, 171))
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -53,7 +57,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.page_3)
+        self.pushButton_3 = QtWidgets.QPushButton(self.page_0)
         self.pushButton_3.setGeometry(QtCore.QRect(80, 220, 231, 171))
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -73,7 +77,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_3.setObjectName("pushButton_3")
-        self.textBrowser = QtWidgets.QTextBrowser(self.page_3)
+        self.textBrowser = QtWidgets.QTextBrowser(self.page_0)
         self.textBrowser.setGeometry(QtCore.QRect(180, 40, 451, 91))
         self.textBrowser.setStyleSheet("border-style: hidden;\n"
 "background-color:rgb(137, 83, 243);\n"
@@ -82,7 +86,7 @@ class Ui_ShopWindow(object):
 "padding: 5px;\n"
 "color:rgb(255, 255, 255)")
         self.textBrowser.setObjectName("textBrowser")
-        self.widget_4 = QtWidgets.QWidget(self.page_3)
+        self.widget_4 = QtWidgets.QWidget(self.page_0)
         self.widget_4.setGeometry(QtCore.QRect(-10, 550, 841, 91))
         self.widget_4.setStyleSheet("background-color:rgb(137, 83, 243)")
         self.widget_4.setObjectName("widget_4")
@@ -90,7 +94,7 @@ class Ui_ShopWindow(object):
         self.widget_2.setGeometry(QtCore.QRect(20, 350, 811, 80))
         self.widget_2.setStyleSheet("opacity:0")
         self.widget_2.setObjectName("widget_2")
-        self.widget_3 = QtWidgets.QWidget(self.page_3)
+        self.widget_3 = QtWidgets.QWidget(self.page_0)
         self.widget_3.setGeometry(QtCore.QRect(-10, 0, 841, 80))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -155,10 +159,10 @@ class Ui_ShopWindow(object):
         self.pushButton_3.raise_()
         self.widget_4.raise_()
         self.widget_3.raise_()
-        self.stackedWidget.addWidget(self.page_3)
-        self.page = QtWidgets.QWidget()
-        self.page.setObjectName("page")
-        self.label_3 = QtWidgets.QLabel(self.page)
+        self.stackedWidget.addWidget(self.page_0)
+        self.page_1 = QtWidgets.QWidget()
+        self.page_1.setObjectName("page_1")
+        self.label_3 = QtWidgets.QLabel(self.page_1)
         self.label_3.setGeometry(QtCore.QRect(310, 220, 221, 111))
         self.label_3.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -170,7 +174,7 @@ class Ui_ShopWindow(object):
         self.label_3.setPixmap(QtGui.QPixmap("car logos/BMW-removebg-preview.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
-        self.label_2 = QtWidgets.QLabel(self.page)
+        self.label_2 = QtWidgets.QLabel(self.page_1)
         self.label_2.setEnabled(True)
         self.label_2.setGeometry(QtCore.QRect(20, 220, 221, 111))
         self.label_2.setStyleSheet("QLabel:hover{\n"
@@ -184,7 +188,7 @@ class Ui_ShopWindow(object):
         self.label_2.setScaledContents(True)
         self.label_2.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
         self.label_2.setObjectName("label_2")
-        self.label_4 = QtWidgets.QLabel(self.page)
+        self.label_4 = QtWidgets.QLabel(self.page_1)
         self.label_4.setGeometry(QtCore.QRect(600, 210, 221, 111))
         self.label_4.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -196,7 +200,7 @@ class Ui_ShopWindow(object):
         self.label_4.setPixmap(QtGui.QPixmap("car logos/Dacia-removebg-preview.png"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
-        self.label_5 = QtWidgets.QLabel(self.page)
+        self.label_5 = QtWidgets.QLabel(self.page_1)
         self.label_5.setGeometry(QtCore.QRect(20, 400, 221, 111))
         self.label_5.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -208,7 +212,7 @@ class Ui_ShopWindow(object):
         self.label_5.setPixmap(QtGui.QPixmap("car logos/Hyundai-removebg-preview.png"))
         self.label_5.setScaledContents(True)
         self.label_5.setObjectName("label_5")
-        self.label_6 = QtWidgets.QLabel(self.page)
+        self.label_6 = QtWidgets.QLabel(self.page_1)
         self.label_6.setGeometry(QtCore.QRect(310, 390, 221, 111))
         self.label_6.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -220,7 +224,7 @@ class Ui_ShopWindow(object):
         self.label_6.setPixmap(QtGui.QPixmap("car logos/mercedes-removebg-preview.png"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
-        self.label_7 = QtWidgets.QLabel(self.page)
+        self.label_7 = QtWidgets.QLabel(self.page_1)
         self.label_7.setGeometry(QtCore.QRect(590, 390, 221, 111))
         self.label_7.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -232,7 +236,7 @@ class Ui_ShopWindow(object):
         self.label_7.setPixmap(QtGui.QPixmap("car logos/Volkswagen-removebg-preview.png"))
         self.label_7.setScaledContents(True)
         self.label_7.setObjectName("label_7")
-        self.textBrowser_2 = QtWidgets.QTextBrowser(self.page)
+        self.textBrowser_2 = QtWidgets.QTextBrowser(self.page_1)
         self.textBrowser_2.setGeometry(QtCore.QRect(180, 40, 451, 91))
         self.textBrowser_2.setStyleSheet("border-style: hidden;\n"
 "background-color:rgb(137, 83, 243);\n"
@@ -241,29 +245,13 @@ class Ui_ShopWindow(object):
 "padding: 5px;\n"
 "color:rgb(255, 255, 255)")
         self.textBrowser_2.setObjectName("textBrowser_2")
-        self.widget_6 = QtWidgets.QWidget(self.page)
-        self.widget_6.setGeometry(QtCore.QRect(380, 580, 841, 91))
-        self.widget_6.setStyleSheet("background-color:rgb(137, 83, 243)")
-        self.widget_6.setObjectName("widget_6")
-        self.widget_7 = QtWidgets.QWidget(self.widget_6)
-        self.widget_7.setGeometry(QtCore.QRect(20, 350, 811, 80))
-        self.widget_7.setStyleSheet("opacity:0")
-        self.widget_7.setObjectName("widget_7")
-        self.pushButton_4 = QtWidgets.QPushButton(self.widget_6)
-        self.pushButton_4.setGeometry(QtCore.QRect(230, 20, 351, 61))
+        
         font = QtGui.QFont()
         font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("background-color:rgb(177, 15, 210);\n"
-"color:rgb(255, 255, 255);\n"
-"border: 2px solid #555;\n"
-"border-radius: 20px;\n"
-"border-style: outset;\n"
-"padding: 5px;")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.widget_9 = QtWidgets.QWidget(self.page)
+        
+        self.widget_9 = QtWidgets.QWidget(self.page_1)
         self.widget_9.setGeometry(QtCore.QRect(0, 0, 841, 80))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -283,41 +271,17 @@ class Ui_ShopWindow(object):
         self.label_23.setPixmap(QtGui.QPixmap("logo2.png"))
         self.label_23.setScaledContents(True)
         self.label_23.setObjectName("label_23")
-        self.pushButton_7 = QtWidgets.QPushButton(self.widget_9)
-        self.pushButton_7.setGeometry(QtCore.QRect(10, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_7.setFont(font)
-        self.pushButton_7.setStyleSheet("background-color:rgb(177, 15, 210);\n"
-"color:rgb(255, 255, 255);\n"
-"border: 2px solid #555;\n"
-"border-radius: 15px;\n"
-"border-style: outset;\n"
-"padding: 5px;")
-        self.pushButton_7.setObjectName("pushButton_7")
-        self.widget_12 = QtWidgets.QWidget(self.widget_9)
-        self.widget_12.setGeometry(QtCore.QRect(0, 0, 841, 80))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.widget_12.sizePolicy().hasHeightForWidth())
-        self.widget_12.setSizePolicy(sizePolicy)
-        self.widget_12.setStyleSheet("background-color:rgb(137, 83, 243)")
-        self.widget_12.setObjectName("widget_12")
-        self.label_24 = QtWidgets.QLabel(self.widget_12)
-        self.label_24.setGeometry(QtCore.QRect(660, -20, 181, 111))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_24.sizePolicy().hasHeightForWidth())
-        self.label_24.setSizePolicy(sizePolicy)
-        self.label_24.setText("")
-        self.label_24.setPixmap(QtGui.QPixmap("logo2.png"))
-        self.label_24.setScaledContents(True)
-        self.label_24.setObjectName("label_24")
-        self.pushButton_9 = QtWidgets.QPushButton(self.widget_12)
+        self.pushButton_9 = QtWidgets.QPushButton(self.widget_9)
         self.pushButton_9.setGeometry(QtCore.QRect(10, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -337,7 +301,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_9.setObjectName("pushButton_9")
-        self.pushButton_16 = QtWidgets.QPushButton(self.widget_12)
+        self.pushButton_16 = QtWidgets.QPushButton(self.widget_9)
         self.pushButton_16.setGeometry(QtCore.QRect(160, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -365,21 +329,11 @@ class Ui_ShopWindow(object):
         self.widget_14.setGeometry(QtCore.QRect(20, 350, 811, 80))
         self.widget_14.setStyleSheet("opacity:0")
         self.widget_14.setObjectName("widget_14")
-        self.pushButton_10 = QtWidgets.QPushButton(self.widget_13)
-        self.pushButton_10.setGeometry(QtCore.QRect(230, 20, 351, 61))
         font = QtGui.QFont()
         font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_10.setFont(font)
-        self.pushButton_10.setStyleSheet("background-color:rgb(177, 15, 210);\n"
-"color:rgb(255, 255, 255);\n"
-"border: 2px solid #555;\n"
-"border-radius: 20px;\n"
-"border-style: outset;\n"
-"padding: 5px;")
-        self.pushButton_10.setObjectName("pushButton_10")
-        self.widget_10 = QtWidgets.QWidget(self.page)
+        self.widget_10 = QtWidgets.QWidget(self.page_1)
         self.widget_10.setGeometry(QtCore.QRect(-10, 550, 841, 91))
         self.widget_10.setStyleSheet("background-color:rgb(137, 83, 243)")
         self.widget_10.setObjectName("widget_10")
@@ -387,7 +341,7 @@ class Ui_ShopWindow(object):
         self.widget_11.setGeometry(QtCore.QRect(20, 350, 811, 80))
         self.widget_11.setStyleSheet("opacity:0")
         self.widget_11.setObjectName("widget_11")
-        self.stackedWidget.addWidget(self.page)
+        self.stackedWidget.addWidget(self.page_1)
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
         self.label_9 = QtWidgets.QLabel(self.page_2)
@@ -523,9 +477,9 @@ class Ui_ShopWindow(object):
         self.widget_8.raise_()
         self.widget_16.raise_()
         self.stackedWidget.addWidget(self.page_2)
-        self.page_4 = QtWidgets.QWidget()
-        self.page_4.setObjectName("page_4")
-        self.widget = QtWidgets.QWidget(self.page_4)
+        self.page_3 = QtWidgets.QWidget()
+        self.page_3.setObjectName("page_3")
+        self.widget = QtWidgets.QWidget(self.page_3)
         self.widget.setGeometry(QtCore.QRect(420, 140, 391, 391))
         self.widget.setStyleSheet("background-color:rgb(227, 131, 246);\n"
 "color:rgb(0, 0, 0);\n"
@@ -639,7 +593,7 @@ class Ui_ShopWindow(object):
         font.setWeight(75)
         self.label_28.setFont(font)
         self.label_28.setObjectName("label_28")
-        self.widget_5 = QtWidgets.QWidget(self.page_4)
+        self.widget_5 = QtWidgets.QWidget(self.page_3)
         self.widget_5.setGeometry(QtCore.QRect(10, 140, 391, 391))
         self.widget_5.setStyleSheet("background-color:rgb(227, 131, 246);\n"
 "color:rgb(0, 0, 0);\n"
@@ -737,7 +691,7 @@ class Ui_ShopWindow(object):
         font.setWeight(75)
         self.label_16.setFont(font)
         self.label_16.setObjectName("label_16")
-        self.widget_21 = QtWidgets.QWidget(self.page_4)
+        self.widget_21 = QtWidgets.QWidget(self.page_3)
         self.widget_21.setGeometry(QtCore.QRect(280, 740, 841, 91))
         self.widget_21.setStyleSheet("background-color:rgb(137, 83, 243)")
         self.widget_21.setObjectName("widget_21")
@@ -759,7 +713,7 @@ class Ui_ShopWindow(object):
 "border-style: outset;\n"
 "padding: 5px;")
         self.pushButton_17.setObjectName("pushButton_17")
-        self.widget_27 = QtWidgets.QWidget(self.page_4)
+        self.widget_27 = QtWidgets.QWidget(self.page_3)
         self.widget_27.setGeometry(QtCore.QRect(-10, 550, 841, 91))
         self.widget_27.setStyleSheet("background-color:rgb(137, 83, 243)")
         self.widget_27.setObjectName("widget_27")
@@ -787,7 +741,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_23.setObjectName("pushButton_23")
-        self.widget_29 = QtWidgets.QWidget(self.page_4)
+        self.widget_29 = QtWidgets.QWidget(self.page_3)
         self.widget_29.setGeometry(QtCore.QRect(-10, 0, 841, 80))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -847,7 +801,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_22.setObjectName("pushButton_22")
-        self.textBrowser_4 = QtWidgets.QTextBrowser(self.page_4)
+        self.textBrowser_4 = QtWidgets.QTextBrowser(self.page_3)
         self.textBrowser_4.setGeometry(QtCore.QRect(180, 40, 451, 91))
         self.textBrowser_4.setStyleSheet("border-style: hidden;\n"
 "background-color:rgb(137, 83, 243);\n"
@@ -862,11 +816,11 @@ class Ui_ShopWindow(object):
         self.widget_21.raise_()
         self.widget_27.raise_()
         self.widget_29.raise_()
-        self.stackedWidget.addWidget(self.page_4)
+        self.stackedWidget.addWidget(self.page_3)
         ShopWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(ShopWindow)
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(ShopWindow)
 
     def retranslateUi(self, ShopWindow):
@@ -890,11 +844,9 @@ class Ui_ShopWindow(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">Choose the car company</span></p></body></html>"))
-        self.pushButton_4.setText(_translate("ShopWindow", "Finish Transaction"))
-        self.pushButton_7.setText(_translate("ShopWindow", "Main Menu"))
+
         self.pushButton_9.setText(_translate("ShopWindow", "Back"))
         self.pushButton_16.setText(_translate("ShopWindow", "Main Menu"))
-        self.pushButton_10.setText(_translate("ShopWindow", "Finish Transaction"))
         self.pushButton_11.setText(_translate("ShopWindow", "Back"))
         self.pushButton_21.setText(_translate("ShopWindow", "Main Menu"))
         self.textBrowser_3.setHtml(_translate("ShopWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

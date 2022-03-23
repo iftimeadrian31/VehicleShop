@@ -10,14 +10,58 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import json
-
+import os
+from playsound import playsound
 
 class Ui_ShopWindow(object):
 
     def display(self,i):
+        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
         self.stackedWidget.setCurrentIndex(i)
+       
+    def select_car_time(self,car_time):
+        self.car_time=car_time
+        self.display(1)
+    
+    def select_car_company(self,car_company):
+        self.car_company=car_company
+        self.display(2)  
+       
+    def select_car_type(self,car_type):
+        self.car_type=car_type
+        self.display(3)
+        
+    def finishTransaction(self):
+        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
+        path="purchases.json"
+        theme_file=open(path,"r")
+        firstname=self.lineEdit.text()
+        lastname=self.lineEdit_2.text()
+        personalId=self.lineEdit_3.text()
+        adress=self.textEdit.toPlainText()
+        car={"time":self.car_time,"type":self.car_type,"company":self.car_company,"personal_information":{"firstname":firstname,"lastname":lastname,"personalId":personalId,"adress":adress}}
+        if os.stat(path).st_size == 0:
+            theme=[]
+        else:
+            theme=json.load(theme_file)
+        theme.append(car)
+        theme_file.close()
+        theme_file=open(path,"w")
+        theme_file.write(json.dumps(theme))
+        theme_file.close()
+        self.openMainMenu()
+      
+        
+    def openMainMenu(self):
+        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
+        self.mainMenuCallback()
 
-    def setupUi(self, ShopWindow):
+    def setupUi(self, ShopWindow,mainMenuCallback):
+        self.mainMenuCallback=mainMenuCallback
+        self.car_time=""
+        self.car_type=""
+        self.car_company=""
+        self.information={}
         theme_file=open("theme.json")
         theme=json.load(theme_file)
         ShopWindow.setObjectName("ShopWindow")
@@ -37,7 +81,7 @@ class Ui_ShopWindow(object):
         self.stackedWidget.setObjectName("stackedWidget")
         self.page_0 = QtWidgets.QWidget()
         self.page_0.setObjectName("page_0")
-        self.pushButton_2 = QtWidgets.QPushButton(self.page_0)
+        self.pushButton_2 = QtWidgets.QPushButton(self.page_0,clicked = lambda:self.select_car_time("second-hand car"))
         self.pushButton_2.setGeometry(QtCore.QRect(510, 230, 231, 171))
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -57,7 +101,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.page_0)
+        self.pushButton_3 = QtWidgets.QPushButton(self.page_0,clicked = lambda:self.select_car_time("new car"))
         self.pushButton_3.setGeometry(QtCore.QRect(80, 220, 231, 171))
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -114,7 +158,7 @@ class Ui_ShopWindow(object):
         self.label_13.setPixmap(QtGui.QPixmap("logo2.png"))
         self.label_13.setScaledContents(True)
         self.label_13.setObjectName("label_13")
-        self.pushButton_5 = QtWidgets.QPushButton(self.widget_3)
+        self.pushButton_5 = QtWidgets.QPushButton(self.widget_3,clicked = lambda:self.openMainMenu())
         self.pushButton_5.setGeometry(QtCore.QRect(20, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -134,26 +178,10 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_5.setObjectName("pushButton_5")
-        self.pushButton_25 = QtWidgets.QPushButton(self.widget_3)
-        self.pushButton_25.setGeometry(QtCore.QRect(170, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_25.setFont(font)
-        self.pushButton_25.setStyleSheet("QPushButton{background-color:rgb(177, 15, 210);\n"
-"color:rgb(255, 255, 255);\n"
-"border: 2px solid #555;\n"
-"border-radius: 15px;\n"
-"border-style: outset;\n"
-"padding: 5px;}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(227, 131, 246);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(96, 9, 114);\n"
-"}")
-        self.pushButton_25.setObjectName("pushButton_25")
         self.textBrowser.raise_()
         self.pushButton_2.raise_()
         self.pushButton_3.raise_()
@@ -163,6 +191,7 @@ class Ui_ShopWindow(object):
         self.page_1 = QtWidgets.QWidget()
         self.page_1.setObjectName("page_1")
         self.label_3 = QtWidgets.QLabel(self.page_1)
+        self.label_3.mousePressEvent = lambda event: self.select_car_company("BMW")
         self.label_3.setGeometry(QtCore.QRect(310, 220, 221, 111))
         self.label_3.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -175,6 +204,7 @@ class Ui_ShopWindow(object):
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         self.label_2 = QtWidgets.QLabel(self.page_1)
+        self.label_2.mousePressEvent = lambda event: self.select_car_company("Audi")
         self.label_2.setEnabled(True)
         self.label_2.setGeometry(QtCore.QRect(20, 220, 221, 111))
         self.label_2.setStyleSheet("QLabel:hover{\n"
@@ -189,6 +219,7 @@ class Ui_ShopWindow(object):
         self.label_2.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
         self.label_2.setObjectName("label_2")
         self.label_4 = QtWidgets.QLabel(self.page_1)
+        self.label_4.mousePressEvent = lambda event: self.select_car_company("Dacia")
         self.label_4.setGeometry(QtCore.QRect(600, 210, 221, 111))
         self.label_4.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -201,6 +232,7 @@ class Ui_ShopWindow(object):
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.page_1)
+        self.label_5.mousePressEvent = lambda event: self.select_car_company("Hyundai")
         self.label_5.setGeometry(QtCore.QRect(20, 400, 221, 111))
         self.label_5.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -213,6 +245,7 @@ class Ui_ShopWindow(object):
         self.label_5.setScaledContents(True)
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(self.page_1)
+        self.label_6.mousePressEvent = lambda event: self.select_car_company("Mercedes Benz")
         self.label_6.setGeometry(QtCore.QRect(310, 390, 221, 111))
         self.label_6.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -225,6 +258,7 @@ class Ui_ShopWindow(object):
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
         self.label_7 = QtWidgets.QLabel(self.page_1)
+        self.label_7.mousePressEvent = lambda event: self.select_car_company("Volkswagen")
         self.label_7.setGeometry(QtCore.QRect(590, 390, 221, 111))
         self.label_7.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -281,7 +315,7 @@ class Ui_ShopWindow(object):
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        self.pushButton_9 = QtWidgets.QPushButton(self.widget_9)
+        self.pushButton_9 = QtWidgets.QPushButton(self.widget_9,clicked = lambda:self.display(1))
         self.pushButton_9.setGeometry(QtCore.QRect(10, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -301,7 +335,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_9.setObjectName("pushButton_9")
-        self.pushButton_16 = QtWidgets.QPushButton(self.widget_9)
+        self.pushButton_16 = QtWidgets.QPushButton(self.widget_9,clicked = lambda:self.openMainMenu())
         self.pushButton_16.setGeometry(QtCore.QRect(160, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -345,6 +379,7 @@ class Ui_ShopWindow(object):
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
         self.label_9 = QtWidgets.QLabel(self.page_2)
+        self.label_9.mousePressEvent = lambda event: self.select_car_type("Compact")
         self.label_9.setGeometry(QtCore.QRect(100, 240, 221, 111))
         self.label_9.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -357,6 +392,7 @@ class Ui_ShopWindow(object):
         self.label_9.setScaledContents(True)
         self.label_9.setObjectName("label_9")
         self.label_10 = QtWidgets.QLabel(self.page_2)
+        self.label_10.mousePressEvent = lambda event: self.select_car_type("SUV")
         self.label_10.setGeometry(QtCore.QRect(510, 230, 221, 111))
         self.label_10.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -369,6 +405,7 @@ class Ui_ShopWindow(object):
         self.label_10.setScaledContents(True)
         self.label_10.setObjectName("label_10")
         self.label_11 = QtWidgets.QLabel(self.page_2)
+        self.label_11.mousePressEvent = lambda event: self.select_car_type("Mid-size")
         self.label_11.setGeometry(QtCore.QRect(110, 440, 221, 111))
         self.label_11.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -381,6 +418,7 @@ class Ui_ShopWindow(object):
         self.label_11.setScaledContents(True)
         self.label_11.setObjectName("label_11")
         self.label_12 = QtWidgets.QLabel(self.page_2)
+        self.label_12.mousePressEvent = lambda event: self.select_car_type("Cabriolet")
         self.label_12.setGeometry(QtCore.QRect(520, 440, 221, 111))
         self.label_12.setStyleSheet("QLabel:hover{\n"
 "background-color:rgb(227, 131, 246);\n"
@@ -420,7 +458,7 @@ class Ui_ShopWindow(object):
         self.label_22.setPixmap(QtGui.QPixmap("logo2.png"))
         self.label_22.setScaledContents(True)
         self.label_22.setObjectName("label_22")
-        self.pushButton_11 = QtWidgets.QPushButton(self.widget_16)
+        self.pushButton_11 = QtWidgets.QPushButton(self.widget_16,clicked = lambda:self.display(1))
         self.pushButton_11.setGeometry(QtCore.QRect(10, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -440,7 +478,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_11.setObjectName("pushButton_11")
-        self.pushButton_21 = QtWidgets.QPushButton(self.widget_16)
+        self.pushButton_21 = QtWidgets.QPushButton(self.widget_16,clicked = lambda:self.openMainMenu())
         self.pushButton_21.setGeometry(QtCore.QRect(160, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -721,7 +759,7 @@ class Ui_ShopWindow(object):
         self.widget_28.setGeometry(QtCore.QRect(20, 350, 811, 80))
         self.widget_28.setStyleSheet("opacity:0")
         self.widget_28.setObjectName("widget_28")
-        self.pushButton_23 = QtWidgets.QPushButton(self.widget_27)
+        self.pushButton_23 = QtWidgets.QPushButton(self.widget_27,clicked = lambda:self.finishTransaction())
         self.pushButton_23.setGeometry(QtCore.QRect(230, 20, 351, 61))
         font = QtGui.QFont()
         font.setPointSize(18)
@@ -761,7 +799,7 @@ class Ui_ShopWindow(object):
         self.label_32.setPixmap(QtGui.QPixmap("logo2.png"))
         self.label_32.setScaledContents(True)
         self.label_32.setObjectName("label_32")
-        self.pushButton_24 = QtWidgets.QPushButton(self.widget_29)
+        self.pushButton_24 = QtWidgets.QPushButton(self.widget_29,clicked = lambda:self.display(2))
         self.pushButton_24.setGeometry(QtCore.QRect(20, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -781,7 +819,7 @@ class Ui_ShopWindow(object):
 "    background-color: rgb(96, 9, 114);\n"
 "}")
         self.pushButton_24.setObjectName("pushButton_24")
-        self.pushButton_22 = QtWidgets.QPushButton(self.widget_29)
+        self.pushButton_22 = QtWidgets.QPushButton(self.widget_29,clicked = lambda:self.openMainMenu())
         self.pushButton_22.setGeometry(QtCore.QRect(170, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -827,6 +865,7 @@ class Ui_ShopWindow(object):
         _translate = QtCore.QCoreApplication.translate
         ShopWindow.setWindowTitle(_translate("ShopWindow", "MainWindow"))
         self.pushButton_2.setText(_translate("ShopWindow", "Second Hand Car"))
+        
         self.pushButton_3.setText(_translate("ShopWindow", "New Car"))
         self.textBrowser.setHtml(_translate("ShopWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -835,8 +874,7 @@ class Ui_ShopWindow(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">New car or Old car</span></p></body></html>"))
-        self.pushButton_5.setText(_translate("ShopWindow", "Back"))
-        self.pushButton_25.setText(_translate("ShopWindow", "Main Menu"))
+        self.pushButton_5.setText(_translate("ShopWindow", "Main Menu"))
         self.textBrowser_2.setHtml(_translate("ShopWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

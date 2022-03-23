@@ -39,7 +39,7 @@
      <string notr="true">color:rgb(0, 0, 0)</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QPushButton" name="pushButton_2">
@@ -213,40 +213,6 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>20</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{background-color:rgb(177, 15, 210);
-color:rgb(255, 255, 255);
-border: 2px solid #555;
-border-radius: 15px;
-border-style: outset;
-padding: 5px;}
-QPushButton:hover {
-    background-color: rgb(227, 131, 246);
-}
-QPushButton:pressed {
-    background-color: rgb(96, 9, 114);
-}</string>
-       </property>
-       <property name="text">
-        <string>Back</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_25">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
          <y>20</y>
          <width>141</width>
          <height>41</height>

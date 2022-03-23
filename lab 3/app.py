@@ -12,22 +12,34 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import json
 from shop import Ui_ShopWindow
 from purchases import Ui_PurchasesWindow
+from playsound import playsound
+
 
 class Ui_StartingWindow(object):
+
+    def openMainMenu(self):
+        self.myWindow.close()
+        self.myWindow=QtWidgets.QMainWindow()
+        self.ui=Ui_StartingWindow()
+        self.ui.setupUi(self.myWindow)
+        self.myWindow.show()
     
     def openShop(self):
-        self.window=QtWidgets.QMainWindow()
+        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
+        self.myWindow.close()
+        self.myWindow=QtWidgets.QMainWindow()
         self.ui=Ui_ShopWindow()
-        self.ui.setupUi(self.window)
-        self.window.show()
-        self.myWindow.hide()
+        self.ui.setupUi(self.myWindow,self.openMainMenu)
+        self.myWindow.show()
         
     def openPurchases(self):
-        self.window=QtWidgets.QMainWindow()
+        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
+        self.myWindow.close()
+        self.myWindow=QtWidgets.QMainWindow()
         self.ui=Ui_PurchasesWindow()
-        self.ui.setupUi(self.window)
-        self.window.show()
-        self.myWindow.hide()
+        self.ui.setupUi(self.myWindow,self.openMainMenu)
+        self.myWindow.show()
+        
         
     def setupUi(self, StartingWindow):
     

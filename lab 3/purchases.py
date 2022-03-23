@@ -16,12 +16,19 @@ from playsound import playsound
 
 class Ui_PurchasesWindow(object):
 
-    def display(self,i):
-        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
-        self.stackedWidget.setCurrentIndex(i)
+    def BackButton(self):
+        if(self.isMusic):
+            playsound('sounds\\04 Secondary System Sounds\\navigation_transition-left.wav',block=False)
+        self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()-1)
+
+    def NextButton(self):
+        if(self.isMusic):
+            playsound('sounds\\04 Secondary System Sounds\\navigation_transition-right.wav',block=False)
+        self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()+1)
 
     def openMainMenu(self):
-        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
+        if(self.isMusic):
+            playsound('sounds\\04 Secondary System Sounds\\navigation-cancel.wav',block=False)
         self.mainMenuCallback()
         
     def loadTable(self):
@@ -43,8 +50,7 @@ class Ui_PurchasesWindow(object):
             self.tableWidget.setItem(i,5,QTableWidgetItem(str((i+1)*12345)))
             
     def selectData(self):
-        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
-        self.display(1)
+        self.NextButton()
         info=self.theme[self.tableWidget.currentRow()]["personal_information"]
         firstname=info["firstname"]
         lastname=info["lastname"]
@@ -55,8 +61,8 @@ class Ui_PurchasesWindow(object):
         self.lineEdit_6.setText(personalId)
         self.textEdit_2.setText(adress)
 
-    def setupUi(self, PurchasesWindow,mainMenuCallback):
-        
+    def setupUi(self, PurchasesWindow,mainMenuCallback,isMusic):
+        self.isMusic=isMusic
         self.mainMenuCallback=mainMenuCallback
         theme_file=open("theme.json")
         theme=json.load(theme_file)
@@ -359,7 +365,7 @@ class Ui_PurchasesWindow(object):
         self.label_6.setPixmap(QtGui.QPixmap("logo2.png"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
-        self.pushButton_8 = QtWidgets.QPushButton(self.widget_10,clicked = lambda:self.display(0))
+        self.pushButton_8 = QtWidgets.QPushButton(self.widget_10,clicked = lambda:self.BackButton())
         self.pushButton_8.setGeometry(QtCore.QRect(10, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)

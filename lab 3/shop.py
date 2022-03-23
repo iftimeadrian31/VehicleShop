@@ -15,48 +15,74 @@ from playsound import playsound
 
 class Ui_ShopWindow(object):
 
-    def display(self,i):
-        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
-        self.stackedWidget.setCurrentIndex(i)
+    def BackButton(self):
+        if(self.isMusic):
+            playsound('sounds\\04 Secondary System Sounds\\navigation_transition-left.wav',block=False)
+        self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()-1)
+
+    def NextButton(self):
+        self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()+1)
        
     def select_car_time(self,car_time):
+        if(self.isMusic):
+            playsound('sounds\\03 Primary System Sounds\\navigation_forward-selection-minimal.wav',block=False)
         self.car_time=car_time
-        self.display(1)
+        self.NextButton()
     
     def select_car_company(self,car_company):
+        if(self.isMusic):
+            playsound('sounds\\03 Primary System Sounds\\navigation_forward-selection-minimal.wav',block=False)
         self.car_company=car_company
-        self.display(2)  
+        self.NextButton()  
        
     def select_car_type(self,car_type):
+        if(self.isMusic):
+            playsound('sounds\\03 Primary System Sounds\\navigation_forward-selection-minimal.wav',block=False)
         self.car_type=car_type
-        self.display(3)
+        self.NextButton()
         
     def finishTransaction(self):
-        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
-        path="purchases.json"
-        theme_file=open(path,"r")
+        isError=False
         firstname=self.lineEdit.text()
         lastname=self.lineEdit_2.text()
         personalId=self.lineEdit_3.text()
         adress=self.textEdit.toPlainText()
-        car={"time":self.car_time,"type":self.car_type,"company":self.car_company,"personal_information":{"firstname":firstname,"lastname":lastname,"personalId":personalId,"adress":adress}}
-        if os.stat(path).st_size == 0:
-            theme=[]
+        if(firstname==""):
+            isError=True
+        if(lastname==""):
+            isError=True
+        if(personalId==""):
+            isError=True
+        if(adress==""):
+            isError=True
+        if(isError==False):
+            if(self.isMusic):
+                playsound('sounds\\03 Primary System Sounds\\state-change_confirm-up.wav',block=False)
+            path="purchases.json"
+            theme_file=open(path,"r")
+            car={"time":self.car_time,"type":self.car_type,"company":self.car_company,"personal_information":{"firstname":firstname,"lastname":lastname,"personalId":personalId,"adress":adress}}
+            if os.stat(path).st_size == 0:
+                theme=[]
+            else:
+                theme=json.load(theme_file)
+            theme.append(car)
+            theme_file.close()
+            theme_file=open(path,"w")
+            theme_file.write(json.dumps(theme))
+            theme_file.close()
+            self.openMainMenu()
         else:
-            theme=json.load(theme_file)
-        theme.append(car)
-        theme_file.close()
-        theme_file=open(path,"w")
-        theme_file.write(json.dumps(theme))
-        theme_file.close()
-        self.openMainMenu()
+            if(self.isMusic):
+                playsound('sounds\\04 Secondary System Sounds\\alert_error-03.wav',block=False)
       
         
     def openMainMenu(self):
-        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
+        if(self.isMusic):
+            playsound('sounds\\04 Secondary System Sounds\\navigation-cancel.wav',block=False)
         self.mainMenuCallback()
 
-    def setupUi(self, ShopWindow,mainMenuCallback):
+    def setupUi(self, ShopWindow,mainMenuCallback,isMusic):
+        self.isMusic=isMusic
         self.mainMenuCallback=mainMenuCallback
         self.car_time=""
         self.car_type=""
@@ -315,7 +341,7 @@ class Ui_ShopWindow(object):
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        self.pushButton_9 = QtWidgets.QPushButton(self.widget_9,clicked = lambda:self.display(1))
+        self.pushButton_9 = QtWidgets.QPushButton(self.widget_9,clicked = lambda:self.BackButton())
         self.pushButton_9.setGeometry(QtCore.QRect(10, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -458,7 +484,7 @@ class Ui_ShopWindow(object):
         self.label_22.setPixmap(QtGui.QPixmap("logo2.png"))
         self.label_22.setScaledContents(True)
         self.label_22.setObjectName("label_22")
-        self.pushButton_11 = QtWidgets.QPushButton(self.widget_16,clicked = lambda:self.display(1))
+        self.pushButton_11 = QtWidgets.QPushButton(self.widget_16,clicked = lambda:self.BackButton())
         self.pushButton_11.setGeometry(QtCore.QRect(10, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -737,20 +763,10 @@ class Ui_ShopWindow(object):
         self.widget_22.setGeometry(QtCore.QRect(20, 350, 811, 80))
         self.widget_22.setStyleSheet("opacity:0")
         self.widget_22.setObjectName("widget_22")
-        self.pushButton_17 = QtWidgets.QPushButton(self.widget_21)
-        self.pushButton_17.setGeometry(QtCore.QRect(230, 20, 351, 61))
         font = QtGui.QFont()
         font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_17.setFont(font)
-        self.pushButton_17.setStyleSheet("background-color:rgb(177, 15, 210);\n"
-"color:rgb(255, 255, 255);\n"
-"border: 2px solid #555;\n"
-"border-radius: 20px;\n"
-"border-style: outset;\n"
-"padding: 5px;")
-        self.pushButton_17.setObjectName("pushButton_17")
         self.widget_27 = QtWidgets.QWidget(self.page_3)
         self.widget_27.setGeometry(QtCore.QRect(-10, 550, 841, 91))
         self.widget_27.setStyleSheet("background-color:rgb(137, 83, 243)")
@@ -799,7 +815,7 @@ class Ui_ShopWindow(object):
         self.label_32.setPixmap(QtGui.QPixmap("logo2.png"))
         self.label_32.setScaledContents(True)
         self.label_32.setObjectName("label_32")
-        self.pushButton_24 = QtWidgets.QPushButton(self.widget_29,clicked = lambda:self.display(2))
+        self.pushButton_24 = QtWidgets.QPushButton(self.widget_29,clicked = lambda:self.BackButton())
         self.pushButton_24.setGeometry(QtCore.QRect(20, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -906,7 +922,6 @@ class Ui_ShopWindow(object):
         self.label_14.setText(_translate("ShopWindow", "Personal ID"))
         self.label_15.setText(_translate("ShopWindow", "Adress"))
         self.label_16.setText(_translate("ShopWindow", "Personal information"))
-        self.pushButton_17.setText(_translate("ShopWindow", "Finish Transaction"))
         self.pushButton_23.setText(_translate("ShopWindow", "Finish Transaction"))
         self.pushButton_24.setText(_translate("ShopWindow", "Back"))
         self.pushButton_22.setText(_translate("ShopWindow", "Main Menu"))

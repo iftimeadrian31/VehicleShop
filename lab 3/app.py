@@ -21,29 +21,40 @@ class Ui_StartingWindow(object):
         self.myWindow.close()
         self.myWindow=QtWidgets.QMainWindow()
         self.ui=Ui_StartingWindow()
-        self.ui.setupUi(self.myWindow)
+        self.ui.setupUi(self.myWindow,self.isMusic)
         self.myWindow.show()
     
     def openShop(self):
-        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
+        if(self.isMusic):
+            playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav',block=False)
         self.myWindow.close()
         self.myWindow=QtWidgets.QMainWindow()
         self.ui=Ui_ShopWindow()
-        self.ui.setupUi(self.myWindow,self.openMainMenu)
+        self.ui.setupUi(self.myWindow,self.openMainMenu,self.isMusic)
         self.myWindow.show()
         
     def openPurchases(self):
-        playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav')
+        if(self.isMusic):
+            playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav',block=False)
         self.myWindow.close()
         self.myWindow=QtWidgets.QMainWindow()
         self.ui=Ui_PurchasesWindow()
-        self.ui.setupUi(self.myWindow,self.openMainMenu)
+        self.ui.setupUi(self.myWindow,self.openMainMenu,self.isMusic)
         self.myWindow.show()
         
+    def ToggleSound(self):
+        if(self.isMusic==True):
+            self.isMusic=False
+            self.pushButton_3.setText("Enable Sound")
+        else:
+            self.isMusic=True
+            self.pushButton_3.setText("Disable Sound")
+            
         
-    def setupUi(self, StartingWindow):
+        
+    def setupUi(self, StartingWindow,isMusic):
     
-    
+        self.isMusic=isMusic
         theme_file=open("theme.json")
         theme=json.load(theme_file)
         StartingWindow.setObjectName("StartingWindow")
@@ -72,7 +83,7 @@ class Ui_StartingWindow(object):
         self.widget.setSizePolicy(sizePolicy)
         self.widget.setStyleSheet("background-color:"+theme["primary_color"]+"")
         self.widget.setObjectName("widget")
-        self.pushButton_3 = QtWidgets.QPushButton(self.widget,)
+        self.pushButton_3 = QtWidgets.QPushButton(self.widget,clicked = lambda:self.ToggleSound())
         self.pushButton_3.setGeometry(QtCore.QRect(30, 20, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -187,7 +198,10 @@ class Ui_StartingWindow(object):
     def retranslateUi(self, StartingWindow):
         _translate = QtCore.QCoreApplication.translate
         StartingWindow.setWindowTitle(_translate("StartingWindow", "MainWindow"))
-        self.pushButton_3.setText(_translate("StartingWindow", "Languages"))
+        if(self.isMusic):
+            self.pushButton_3.setText(_translate("StartingWindow", "Disable Sound"))
+        else:
+            self.pushButton_3.setText(_translate("StartingWindow", "Enable Sound"))
         self.pushButton_2.setText(_translate("StartingWindow", "View purchases"))
         self.pushButton.setText(_translate("StartingWindow", "Begin transaction"))
         self.textBrowser.setHtml(_translate("StartingWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -207,6 +221,6 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     StartingWindow = QtWidgets.QMainWindow()
     ui = Ui_StartingWindow()
-    ui.setupUi(StartingWindow)
+    ui.setupUi(StartingWindow,True)
     StartingWindow.show()
     sys.exit(app.exec_())

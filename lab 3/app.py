@@ -13,11 +13,68 @@ import json
 from shop import Ui_ShopWindow
 from purchases import Ui_PurchasesWindow
 from playsound import playsound
+import speech_recognition as sr
+import pyttsx3
+import time
+import threading
 
-
+    
 class Ui_StartingWindow(object):
 
+    def speech(self):
+        recognizer = sr.Recognizer()
+        microphone = sr.Microphone()
+        engine = pyttsx3.init()
+        action = 'Listening'
+        print(action)
+        self.textToSpeech(engine,action)
+        quitFlag = True
+        while (quitFlag and (not(self.change))):
+            text = self.speechToText(recognizer, microphone)
+            if not text["success"] and text["error"] == "API unavailable":
+                print("ERROR: {}\nclose program".format(text["error"]))
+                break;
+            while not text["success"]:
+                print("I didn't catch that. What did you say?\n")
+                text = self.speechToText(recognizer, microphone)
+            if (text["transcription"].lower() == "exit"):
+                quitFlag = False
+            if (text["transcription"].lower() == "music"):
+                self.ToggleSound()
+                if(self.isMusic):
+                    self.textToSpeech(engine,"Sound enabled")
+                else:
+                    self.textToSpeech(engine,"Sound disabled")
+            print(text["transcription"].lower())
+            #self.textToSpeech(engine,text["transcription"].lower())
+
+    def speechToText(self,recognizer, microphone):
+        with microphone as source:
+            recognizer.adjust_for_ambient_noise(source)
+            audio = recognizer.listen(source)
+        response = {
+        "success": True,
+        "error": None,
+        "transcription": None
+        }
+        try:
+            response["transcription"] = recognizer.recognize_google(audio)
+        except sr.RequestError:
+            response["success"] = False
+            response["error"] = "API unavailable"
+        except sr.UnknownValueError:
+            response["success"] = False
+            response["error"] = "Unable to recognize speech"
+        return response
+        
+           
+    def textToSpeech(self,engine,myText):
+        engine.say(myText)
+        engine.runAndWait()
+
+
     def openMainMenu(self):
+        self.change=False
         self.myWindow.close()
         self.myWindow=QtWidgets.QMainWindow()
         self.ui=Ui_StartingWindow()
@@ -25,6 +82,7 @@ class Ui_StartingWindow(object):
         self.myWindow.show()
     
     def openShop(self):
+        self.change=True
         if(self.isMusic):
             playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav',block=False)
         self.myWindow.close()
@@ -34,6 +92,7 @@ class Ui_StartingWindow(object):
         self.myWindow.show()
         
     def openPurchases(self):
+        self.change=True
         if(self.isMusic):
             playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav',block=False)
         self.myWindow.close()
@@ -53,7 +112,9 @@ class Ui_StartingWindow(object):
         
         
     def setupUi(self, StartingWindow,isMusic):
-    
+        self.change=False
+        self.thread=threading.Thread(target=self.speech,)
+        self.thread.start()
         self.isMusic=isMusic
         theme_file=open("theme.json")
         theme=json.load(theme_file)
@@ -223,4 +284,6 @@ if __name__ == "__main__":
     ui = Ui_StartingWindow()
     ui.setupUi(StartingWindow,True)
     StartingWindow.show()
+        
     sys.exit(app.exec_())
+    

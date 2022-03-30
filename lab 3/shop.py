@@ -12,8 +12,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import json
 import os
 from playsound import playsound
+import speech_recognition as sr
+import pyttsx3
+import time
+import threading
 
 class Ui_ShopWindow(object):
+
 
     def BackButton(self):
         if(self.isMusic):
@@ -77,6 +82,7 @@ class Ui_ShopWindow(object):
       
         
     def openMainMenu(self):
+        self.change=True
         if(self.isMusic):
             playsound('sounds\\04 Secondary System Sounds\\navigation-cancel.wav',block=False)
         self.mainMenuCallback()

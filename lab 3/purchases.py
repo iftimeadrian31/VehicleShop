@@ -13,6 +13,10 @@ from PyQt5.QtWidgets import QTableWidgetItem
 import json
 import os
 from playsound import playsound
+import speech_recognition as sr
+import pyttsx3
+import time
+import threading
 
 class Ui_PurchasesWindow(object):
 

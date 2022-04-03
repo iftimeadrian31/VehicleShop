@@ -33,7 +33,8 @@ class Ui_PurchasesWindow(object):
     def openMainMenu(self):
         if(self.isMusic):
             playsound('sounds\\04 Secondary System Sounds\\navigation-cancel.wav',block=False)
-        self.mainMenuCallback()
+        self.mainMenuCallback(0)
+    
         
     def loadTable(self):
         path="purchases.json"
@@ -65,9 +66,8 @@ class Ui_PurchasesWindow(object):
         self.lineEdit_6.setText(personalId)
         self.textEdit_2.setText(adress)
 
-    def setupUi(self, PurchasesWindow,mainMenuCallback,isMusic):
+    def setupUi(self, PurchasesWindow,isMusic):
         self.isMusic=isMusic
-        self.mainMenuCallback=mainMenuCallback
         theme_file=open("theme.json")
         theme=json.load(theme_file)
         PurchasesWindow.setObjectName("PurchasesWindow")

@@ -45,6 +45,7 @@ class Ui_ShopWindow(object):
             playsound('sounds\\03 Primary System Sounds\\navigation_forward-selection-minimal.wav',block=False)
         self.car_type=car_type
         self.NextButton()
+    
         
     def finishTransaction(self):
         isError=False
@@ -85,17 +86,17 @@ class Ui_ShopWindow(object):
         self.change=True
         if(self.isMusic):
             playsound('sounds\\04 Secondary System Sounds\\navigation-cancel.wav',block=False)
-        self.mainMenuCallback()
+        self.mainMenuCallback(1)
 
-    def setupUi(self, ShopWindow,mainMenuCallback,isMusic):
+    def setupUi(self, ShopWindow,isMusic):
         self.isMusic=isMusic
-        self.mainMenuCallback=mainMenuCallback
         self.car_time=""
         self.car_type=""
         self.car_company=""
         self.information={}
         theme_file=open("theme.json")
         theme=json.load(theme_file)
+        self.myWindow=ShopWindow
         ShopWindow.setObjectName("ShopWindow")
         ShopWindow.resize(827, 640)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)

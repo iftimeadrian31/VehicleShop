@@ -18,103 +18,94 @@ import pyttsx3
 import time
 import threading
 
+def speech(main,purchases,shop):
+    recognizer = sr.Recognizer()
+    microphone = sr.Microphone()
+    engine = pyttsx3.init()
+    action = 'Listening'
+    print(action)
+    textToSpeech(engine,action)
+    quitFlag = True
+    while (quitFlag):
+        text = speechToText(recognizer, microphone)
+        if not text["success"] and text["error"] == "API unavailable":
+            print("ERROR: {}\nclose program".format(text["error"]))
+            break;
+        while not text["success"]:
+            print("I didn't catch that. What did you say?\n")
+            text = speechToText(recognizer, microphone)
+        if (text["transcription"].lower() == "exit"):
+            quitFlag = False
+        if (text["transcription"].lower() == "music"):
+            main.ToggleSound()
+            if(main.isMusic):
+                textToSpeech(engine,"Sound enabled")
+            else:
+                textToSpeech(engine,"Sound disabled")
+        print(text["transcription"].lower())
+        #self.textToSpeech(engine,text["transcription"].lower())
+
+def speechToText(recognizer, microphone):
+    with microphone as source:
+        recognizer.adjust_for_ambient_noise(source)
+        audio = recognizer.listen(source)
+    response = {
+    "success": True,
+    "error": None,
+    "transcription": None
+    }
+    try:
+        response["transcription"] = recognizer.recognize_google(audio)
+    except sr.RequestError:
+        response["success"] = False
+        response["error"] = "API unavailable"
+    except sr.UnknownValueError:
+        response["success"] = False
+        response["error"] = "Unable to recognize speech"
+    return response
+        
+           
+def textToSpeech(engine,myText):
+    engine.say(myText)
+    engine.runAndWait()
     
 class Ui_StartingWindow(object):
 
-    def speech(self):
-        recognizer = sr.Recognizer()
-        microphone = sr.Microphone()
-        engine = pyttsx3.init()
-        action = 'Listening'
-        print(action)
-        self.textToSpeech(engine,action)
-        quitFlag = True
-        while (quitFlag and (not(self.change))):
-            text = self.speechToText(recognizer, microphone)
-            if not text["success"] and text["error"] == "API unavailable":
-                print("ERROR: {}\nclose program".format(text["error"]))
-                break;
-            while not text["success"]:
-                print("I didn't catch that. What did you say?\n")
-                text = self.speechToText(recognizer, microphone)
-            if (text["transcription"].lower() == "exit"):
-                quitFlag = False
-            if (text["transcription"].lower() == "music"):
-                self.ToggleSound()
-                if(self.isMusic):
-                    self.textToSpeech(engine,"Sound enabled")
-                else:
-                    self.textToSpeech(engine,"Sound disabled")
-            print(text["transcription"].lower())
-            #self.textToSpeech(engine,text["transcription"].lower())
-
-    def speechToText(self,recognizer, microphone):
-        with microphone as source:
-            recognizer.adjust_for_ambient_noise(source)
-            audio = recognizer.listen(source)
-        response = {
-        "success": True,
-        "error": None,
-        "transcription": None
-        }
-        try:
-            response["transcription"] = recognizer.recognize_google(audio)
-        except sr.RequestError:
-            response["success"] = False
-            response["error"] = "API unavailable"
-        except sr.UnknownValueError:
-            response["success"] = False
-            response["error"] = "Unable to recognize speech"
-        return response
-        
-           
-    def textToSpeech(self,engine,myText):
-        engine.say(myText)
-        engine.runAndWait()
-
-
-    def openMainMenu(self):
-        self.change=False
-        self.myWindow.close()
-        self.myWindow=QtWidgets.QMainWindow()
-        self.ui=Ui_StartingWindow()
-        self.ui.setupUi(self.myWindow,self.isMusic)
+    
+    def openMainMenu(self,id):
+        self.ui_list[id].myWindow.hide()
         self.myWindow.show()
     
     def openShop(self):
-        self.change=True
+        self.myWindow.hide()
         if(self.isMusic):
             playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav',block=False)
-        self.myWindow.close()
-        self.myWindow=QtWidgets.QMainWindow()
-        self.ui=Ui_ShopWindow()
-        self.ui.setupUi(self.myWindow,self.openMainMenu,self.isMusic)
-        self.myWindow.show()
+        self.ui_list[1].myWindow.show()
         
     def openPurchases(self):
-        self.change=True
+        self.myWindow.hide()
         if(self.isMusic):
             playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav',block=False)
-        self.myWindow.close()
-        self.myWindow=QtWidgets.QMainWindow()
-        self.ui=Ui_PurchasesWindow()
-        self.ui.setupUi(self.myWindow,self.openMainMenu,self.isMusic)
-        self.myWindow.show()
+        self.ui_list[0].myWindow.show()
         
     def ToggleSound(self):
         if(self.isMusic==True):
             self.isMusic=False
+            for ui in self.ui_list:
+                ui.isMusic=False
             self.pushButton_3.setText("Enable Sound")
         else:
             self.isMusic=True
+            for ui in self.ui_list:
+                ui.isMusic=True
             self.pushButton_3.setText("Disable Sound")
             
         
         
-    def setupUi(self, StartingWindow,isMusic):
-        self.change=False
-        self.thread=threading.Thread(target=self.speech,)
-        self.thread.start()
+    def setupUi(self, StartingWindow,ui_list,isMusic):
+        
+        self.ui_list=ui_list
+        
         self.isMusic=isMusic
         theme_file=open("theme.json")
         theme=json.load(theme_file)
@@ -280,10 +271,28 @@ class Ui_StartingWindow(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
+    
+    PurchasesWindow = QtWidgets.QMainWindow()
+    ui_pw = Ui_PurchasesWindow()
+    ui_pw.setupUi(PurchasesWindow,True)
+    
+    ShopWindow = QtWidgets.QMainWindow()
+    ui_sw = Ui_ShopWindow()
+    ui_sw.setupUi(ShopWindow,True)
+    
+    uiList=[ui_pw,ui_sw]
+    
     StartingWindow = QtWidgets.QMainWindow()
-    ui = Ui_StartingWindow()
-    ui.setupUi(StartingWindow,True)
-    StartingWindow.show()
+    ui_mw = Ui_StartingWindow()
+    ui_mw.setupUi(StartingWindow,uiList,True)
+    
+    ui_pw.mainMenuCallback=ui_mw.openMainMenu
+    ui_sw.mainMenuCallback=ui_mw.openMainMenu
+    
+    ui_mw.myWindow.show()
+    thread=threading.Thread(target=speech,args=(ui_mw,ui_pw,ui_sw,))
+    thread.start()
+    
         
     sys.exit(app.exec_())
     

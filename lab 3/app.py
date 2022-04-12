@@ -30,7 +30,7 @@ def speech(main,purchases,shop):
         text = speechToText(recognizer, microphone)
         if not text["success"] and text["error"] == "API unavailable":
             print("ERROR: {}\nclose program".format(text["error"]))
-            break;
+            break
         while not text["success"]:
             print("I didn't catch that. What did you say?\n")
             text = speechToText(recognizer, microphone)
@@ -42,6 +42,12 @@ def speech(main,purchases,shop):
                 textToSpeech(engine,"Sound enabled")
             else:
                 textToSpeech(engine,"Sound disabled")
+        if(text["transcription"].lower()=="face"):
+            shop.changeTracking()
+            if(shop.tracking):
+                textToSpeech(engine,"Tracking enabled")
+            else:
+                textToSpeech(engine,"Tracking disabled")
         print(text["transcription"].lower())
         #self.textToSpeech(engine,text["transcription"].lower())
 
@@ -75,18 +81,21 @@ class Ui_StartingWindow(object):
     def openMainMenu(self,id):
         self.ui_list[id].myWindow.hide()
         self.myWindow.show()
+        self.ui_list[1].tracking=False
     
     def openShop(self):
         self.myWindow.hide()
         if(self.isMusic):
             playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav',block=False)
         self.ui_list[1].myWindow.show()
+        self.ui_list[1].tracking=True
         
     def openPurchases(self):
         self.myWindow.hide()
         if(self.isMusic):
             playsound('sounds\\03 Primary System Sounds\\ui_tap-variant-03.wav',block=False)
         self.ui_list[0].myWindow.show()
+        self.ui_list[1].tracking=False
         
     def ToggleSound(self):
         if(self.isMusic==True):
@@ -271,7 +280,6 @@ class Ui_StartingWindow(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    
     PurchasesWindow = QtWidgets.QMainWindow()
     ui_pw = Ui_PurchasesWindow()
     ui_pw.setupUi(PurchasesWindow,True)

@@ -14,19 +14,161 @@ import os
 from playsound import playsound
 import speech_recognition as sr
 import pyttsx3
-import time
 import threading
+import cv2
+import pyautogui
+from win32api import GetSystemMetrics
+from datetime import datetime
+#def tx(x,win_width,x_pos):
+        # print(x_pos)
+        # xc= GetSystemMetrics(0)
+        # return xc/2-(win_width/2)+(x*(xc/(win_width*0.5)))
+
+#def ty(y,win_height,y_pos):
+        # print(y_pos)
+        # yc=GetSystemMetrics(1)
+        # return yc/2-(win_height/2)+(y*(yc/(win_height*0.5)))
+
+def tx(x,win_width,x_pos,old_xt):
+        xc= GetSystemMetrics(0)
+        new_x=x_pos+(x*(xc/(win_width)))
+        if(new_x>x_pos+win_width):
+                if(abs(old_xt-x_pos+win_width)<5):
+                        return old_xt
+                return x_pos+win_width
+        elif (new_x<x_pos):
+                if(abs(old_xt-x_pos)<5):
+                        return old_xt
+                return x_pos
+        if(abs(old_xt-new_x)<5):
+                return old_xt
+        return new_x
+
+def ty(y,win_height,y_pos,old_yt):
+        yc=GetSystemMetrics(1)
+        new_y=y_pos+(y*(yc/(win_height)))
+        if(new_y>y_pos+win_height):
+                if(abs(old_yt-y_pos+win_height)<5):
+                        return old_yt
+                return y_pos+win_height
+        elif (new_y<y_pos):
+                if(abs(old_yt-y_pos)<5):
+                        return old_yt
+                return y_pos
+        if(abs(old_yt-new_y)<5):
+                return old_yt
+        return new_y
+
+def sx(w):
+        sw=GetSystemMetrics(0)/2
+        return sw/w
+
+def sy(h):
+        sh=GetSystemMetrics(1)/2
+        return sh/h
+
+def mx(tx,sx):
+        return tx*sx
+
+def my(ty,sy):
+        return ty*sy
 
 class Ui_ShopWindow(object):
-
+    def changeTracking(self):
+        if(self.tracking==True):
+                self.tracking=False
+        else:
+                self.tracking=True
+    def start_detectie(self):
+        self.thread.start()
+    def detectie(self):
+        face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alto.xml')
+        eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
+        # define a video capture object
+        vid = cv2.VideoCapture(0)
+        timp_vechi=datetime.now()
+        x_old=0
+        y_old=0
+        xt=0
+        yt=0
+        while(self.run_flag):
+                if(self.tracking):
+                        # Capture the video frame
+                        # by frame
+                        ret, cvImg = vid.read()
+                        width=self.myWindow.frameGeometry().width()
+                        height=self.myWindow.frameGeometry().height()
+                        if ret:
+                                # Display the resulting frame
+                                cvImg = cv2.flip(cvImg,1)
+                                gray = cv2.cvtColor(cvImg, cv2.COLOR_BGR2GRAY)
+                                faceRects = face_cascade.detectMultiScale(gray, 1.3, 5)
+                                for (x, y, w, h) in faceRects:
+                                        timp_nou=datetime.now()
+                                        if(timp_nou-timp_vechi).total_seconds()>2:
+                                                if(abs(x_old-x)<3 and abs(y_old-y)<3):
+                                                        timp_vechi=timp_nou
+                                                        pyautogui.leftClick()
+                                                else:
+                                                        x_old=x
+                                                        y_old=y
+                                        # desenare unui punct in centrul dreptunghiului ce incadreaza caracteristicile
+                                        # detectate (fata/ochii)
+                                        # coordonatele punctului sunt: x + int(w / 2), y + int(h / 2)
+                                        cv2.rectangle(cvImg, (x + int(w / 2), y + int(h / 2)), (x + int(w / 2), y +
+                                        int(h / 2)), (0, 255, 0), 3)
+                                        roi_gray = gray[y:y+h, x:x+w]
+                                        roi_color = cvImg[y:y+h, x:x+w]
+                                        eyes = eye_cascade.detectMultiScale(roi_gray)
+                                        for (ex,ey,ew,eh) in eyes:
+                                                cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
+                                        #cv2.imshow('frame', cvImg)
+                                        # # ecuație de transformare fereastra poarta
+                                        old_xt=xt
+                                        old_yt=yt
+                                        xt = tx(x,width,self.myWindow.pos().x(),old_xt)
+                                        yt = ty(y,height,self.myWindow.pos().y(),old_yt)
+                                        # ....
+                                        # # snap to grid
+                                        # # avand in vedere ca mouse-ul nu va sta fix pe ecran, se va adauga un filtru
+                                        # # suplimentar ce va consta intr-un grid avand cate un punct in centrul
+                                        # # elementului activ de pe interfața (buton, meniu etc) orice coordonate (xt,yt)
+                                        # # aflate in aria unui element activ vor fi modificate astfel incat sa preia
+                                        # # coordonatele centrului elementului respectiv
+                                        #xg = gx(xt)
+                                        #yg = gy(yt)
+                                        # ....
+                                        #print(xt)
+                                        #print(yt)
+                                        QtGui.QCursor.setPos(xt, yt)
+                                        # daca cursorul este ținut in aria respectivă un timp de 2 secunde generați un
+                                        # # eveniment click stanga
+                                        # ....
+                                        #if(time > 2):
+                                        #         pyautogui.leftClick()
+                                        # actualizare imagine pe interfața
+                                        #self.change_pixmap_signal.emit(cvImg)
+                        # the 'q' button is set as the
+                        # quitting button you may use any
+                        # desired button of your choice
+                        if cv2.waitKey(1) & 0xFF == ord('q'):
+                                break
+          
+        # After the loop release the cap object
+        vid.release()
+        # Destroy all the windows
+        cv2.destroyAllWindows()
 
     def BackButton(self):
         if(self.isMusic):
             playsound('sounds\\04 Secondary System Sounds\\navigation_transition-left.wav',block=False)
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()-1)
+        
 
     def NextButton(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()+1)
+        if(self.stackedWidget.currentIndex())==3:
+                self.tracking=False
        
     def select_car_time(self,car_time):
         if(self.isMusic):
@@ -88,7 +230,11 @@ class Ui_ShopWindow(object):
             playsound('sounds\\04 Secondary System Sounds\\navigation-cancel.wav',block=False)
         self.mainMenuCallback(1)
 
-    def setupUi(self, ShopWindow,isMusic):
+    def setupUi(self, ShopWindow,isMusic,):
+        self.tracking=False
+        self.run_flag=True
+        self.thread=threading.Thread(target=self.detectie,args=())
+        self.start_detectie()
         self.isMusic=isMusic
         self.car_time=""
         self.car_type=""

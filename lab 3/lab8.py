@@ -63,10 +63,6 @@ for index_esantion in range(int(nr_esantioane_per_trial1)):
         media1=media1/int(nr_trialuri1)
         medii_canal1.append(media1)
     medii_trials1.append(medii_canal1)
-    
-    
-
-
 
 trial_mediu1=[]
 for index_canal in range(int(nr_canale1)):
@@ -99,29 +95,58 @@ for index_canal in range(int(nr_canale2)):
     trial_mediu2.append(medii_canal2)
     
 
-
-
-
-
-#index_canal=1
-#index_esantion=0
-#print(trial_mediu[index_canal][index_esantion])
-    
-#media=0
-#for index_trial in range(int(nr_trialuri1)):
-#    media+=triale_organizate1[index_trial][index_canal][index_esantion]
-#media=media/int(nr_trialuri1)
-#print(media)
-
 lista_y=[]
 for index_esantion in range(int(nr_esantioane_per_trial1)):
-    lista_y.append(index_esantion*frecventa_esantionare1)
+    lista_y.append(index_esantion/int(frecventa_esantionare1))
 
 
 for index_canal in range(int(nr_canale1)):
     plt.subplot(3,3,index_canal+1)
     plt.plot(lista_y,trial_mediu1[index_canal])
     plt.plot(lista_y,trial_mediu2[index_canal])
-plt.ylim([-5, 5])
-plt.xlim([0, 0.8])
+    plt.xlim([0,0.7])
+    plt.ylim([-10,10])
+    x_ticks=[0.1,0.2,0.3,0.4,0.5,0.6,0.7]
+    y_ticks=[-5,0,5]
+    x_labels=[0.1,0.2,0.3,0.4,0.5,0.6,0.7]
+    y_labels=[-5,0,5]
+    plt.xticks(ticks=x_ticks,labels=x_labels)
+    plt.yticks(ticks=y_ticks,labels=y_labels)
 plt.show()
+
+
+medii_trials_baseline_1=[]
+for index_esantion in range(int(26)):
+    medii_canal1=[]
+    for index_canal in range(int(nr_canale1)):
+        media1=0
+        for index_trial in range(int(nr_trialuri1)):
+            media1+=triale_organizate1[index_trial][index_canal][index_esantion]
+        media1=media1/int(nr_trialuri1)
+        medii_canal1.append(media1)
+    medii_trials_baseline_1.append(medii_canal1)
+
+trial_baseline_1=[]
+for index_canal in range(int(nr_canale1)):
+    medii_canal1=[]
+    for index_esantion in range(int(26)):
+        medii_canal1.append(medii_trials_baseline_1[index_esantion][index_canal])
+    trial_baseline_1.append(medii_canal1)
+
+medii_trials_baseline_2=[]
+for index_esantion in range(int(26)):
+    medii_canal2=[]
+    for index_canal in range(int(nr_canale2)):
+        media2=0
+        for index_trial in range(int(nr_trialuri2)):
+            media2+=triale_organizate2[index_trial][index_canal][index_esantion]
+        media2=media2/int(nr_trialuri2)
+        medii_canal2.append(media2)
+    medii_trials_baseline_2.append(medii_canal2)
+
+trial_baseline_2=[]
+for index_canal in range(int(nr_canale2)):
+    medii_canal2=[]
+    for index_esantion in range(int(26)):
+        medii_canal2.append(medii_trials_baseline_2[index_esantion][index_canal])
+    trial_baseline_2.append(medii_canal2)

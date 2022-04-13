@@ -17,7 +17,7 @@ import speech_recognition as sr
 import pyttsx3
 import time
 import threading
-import numpy as np
+
 
 def speech(main,purchases,shop):
     recognizer = sr.Recognizer()
@@ -293,59 +293,8 @@ if __name__ == "__main__":
     thread=threading.Thread(target=speech,args=(ui_mw,ui_pw,ui_sw,))
     thread.start()
     
-    with open('IOC-L08-ep8chNONTargets.dat') as f:
-        nr_canale1=next(f)
-        nr_esantioane_per_trial1=next(f)
-        nr_trialuri1=next(f)
-        irelevant1=next(f)
-        frecventa_esantionare1=next(f)
-    esantioane1 = np.loadtxt('IOC-L08-ep8chNONTargets.dat', unpack = True,skiprows=5)
-    obiecte_esantioane1=[]
-    for esantion in esantioane1:
-        obiect_esantion={}
-        canale1=[]
-        for index_canal in range(int(nr_canale1)):
-            canal=[]
-            for index_trial in range(int(nr_trialuri1)):
-                canal.append(esantion[index_canal*index_trial])
-            canale1.append(canal)
-        trials1=[]
-        for index in range(int(nr_trialuri1)):
-            trial=[]
-            for canal in canale1:
-                trial.append(canal[index])
-            trials1.append(trial)
-        obiect_esantion["canale"]=canale1
-        obiect_esantion["trials"]=trials1
-        obiecte_esantioane1.append(obiect_esantion)
-            
-    with open('IOC-L08-ep8chTargets.dat') as f:
-        nr_canale2=next(f)
-        nr_esantioane_per_trial2=next(f)
-        nr_trialuri2=next(f)
-        irelevant2=next(f)
-        frecventa_esantionare2=next(f)
-    esantioane2 = np.loadtxt('IOC-L08-ep8chTargets.dat', unpack = True,skiprows=5)
-    obiecte_esantioane2=[]
-    for esantion in esantioane2:
-        obiect_esantion={}
-        canale2=[]
-        for index_canal in range(int(nr_canale2)):
-            canal=[]
-            for index_trial in range(int(nr_trialuri2)):
-                canal.append(esantion[index_canal*index_trial])
-            canale2.append(canal)
-        trials2=[]
-        for index in range(int(nr_trialuri2)):
-            trial=[]
-            for canal in canale2:
-                trial.append(canal[index])
-            trials2.append(trial)
-        obiect_esantion["canale"]=canale2
-        obiect_esantion["trials"]=trials2
-        obiecte_esantioane2.append(obiect_esantion)
+
     
-    print(len(obiecte_esantioane1[0]["canale"][0]))
-        
     sys.exit(app.exec_())
+    
     

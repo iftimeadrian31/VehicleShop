@@ -102,8 +102,9 @@ for index_esantion in range(int(nr_esantioane_per_trial1)):
 
 for index_canal in range(int(nr_canale1)):
     plt.subplot(3,3,index_canal+1)
-    plt.plot(lista_y,trial_mediu1[index_canal])
-    plt.plot(lista_y,trial_mediu2[index_canal])
+    plt.axvline(x=0.1,color='tab:orange',label='Trigger')
+    plt.plot(lista_y,trial_mediu1[index_canal],'g',label='Target')
+    plt.plot(lista_y,trial_mediu2[index_canal],'b',label='NONTarget')
     plt.xlim([0,0.7])
     plt.ylim([-10,10])
     x_ticks=[0.1,0.2,0.3,0.4,0.5,0.6,0.7]
@@ -112,6 +113,7 @@ for index_canal in range(int(nr_canale1)):
     y_labels=[-5,0,5]
     plt.xticks(ticks=x_ticks,labels=x_labels)
     plt.yticks(ticks=y_ticks,labels=y_labels)
+plt.legend(bbox_to_anchor =(2, 0.5))
 plt.show()
 
 
